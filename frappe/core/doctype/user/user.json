@@ -448,7 +448,7 @@
  "issingle": 0, 
  "istable": 0, 
  "max_attachments": 5, 
- "modified": "2014-06-03 07:30:51.416128", 
+ "modified": "2014-06-04 12:59:28.131130", 
  "modified_by": "Administrator", 
  "module": "Core", 
  "name": "User", 
@@ -464,6 +464,13 @@
    "report": 1, 
    "role": "System Manager", 
    "submit": 0, 
+   "write": 1
+  }, 
+  {
+   "apply_user_permissions": 1, 
+   "permlevel": 0, 
+   "read": 1, 
+   "role": "All", 
    "write": 1
   }, 
   {
