@@ -104,7 +104,7 @@ frappe.form.formatters = {
 		$.each((value || "").split(","), function(i, v) {
 			if(v) html+= '<span class="label label-info" \
 				style="margin-right: 7px; cursor: pointer;"\
-				data-field="_user_tags" data-label="'+v+'">'+v +'</span>';
+				data-field="_user_tags" data-label="'+v+'">'+ __(v) +'</span>';
 		});
 		return html;
 	},
