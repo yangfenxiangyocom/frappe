@@ -52,7 +52,7 @@ frappe.views.ReportViewPage = Class.extend({
 	make_report_view: function() {
 		var module = locals.DocType[this.doctype].module;
 		this.page.appframe.set_title(__(this.doctype));
-		this.page.appframe.add_module_icon(module, this.doctype)
+		this.page.appframe.add_module_icon(module, this.doctype);
 		this.page.appframe.set_title_left(function() { frappe.set_route((frappe.get_module(module) || {}).link); });
 		this.page.appframe.set_views_for(this.doctype, "report");
 
@@ -89,7 +89,7 @@ frappe.views.ReportView = frappe.ui.Listing.extend({
 
 	setup: function() {
 		var me = this;
-		this.page_title = __('Report')+ ': ' + __(this.docname ? (this.doctype + ' - ' + this.docname) : this.doctype);
+		this.page_title = __('Report')+ ': ' + __(this.docname ? (__(this.doctype )+ ' - ' + __(this.docname)) : __(this.doctype));
 		this.page.appframe.set_title(this.page_title)
 		this.make({
 			appframe: this.page.appframe,
