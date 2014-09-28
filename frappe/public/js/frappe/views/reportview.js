@@ -89,7 +89,7 @@ frappe.views.ReportView = frappe.ui.Listing.extend({
 
 	setup: function() {
 		var me = this;
-		this.page_title = __('Report')+ ': ' + __(this.docname ? (__(this.doctype )+ ' - ' + __(this.docname)) : __(this.doctype));
+		this.page_title = __('Report')+ ': ' + (this.docname ? (__(this.doctype )+ ' - ' + __(this.docname)) : __(this.doctype));
 		this.page.appframe.set_title(this.page_title)
 		this.make({
 			appframe: this.page.appframe,

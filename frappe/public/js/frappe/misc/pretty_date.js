@@ -1,5 +1,5 @@
 function prettyDate(time){
-	if(moment) {
+	if(moment && 1==2) {
 		if(frappe.boot) {
 			var user_timezone = frappe.boot.user.time_zone;
 			var system_timezone = sys_defaults.time_zone;
@@ -24,16 +24,16 @@ function prettyDate(time){
 			return '';
 
 		return when = day_diff == 0 && (
-				diff < 60 && "just now" ||
-				diff < 120 && "1 minute ago" ||
-				diff < 3600 && Math.floor( diff / 60 ) + " minutes ago" ||
-				diff < 7200 && "1 hour ago" ||
-				diff < 86400 && Math.floor( diff / 3600 ) + " hours ago") ||
-			day_diff == 1 && "Yesterday" ||
-			day_diff < 7 && day_diff + " days ago" ||
-			day_diff < 31 && Math.ceil( day_diff / 7 ) + " weeks ago" ||
-			day_diff < 365 && Math.ceil( day_diff / 30) + " months ago" ||
-			"> " + Math.floor( day_diff / 365 ) + " year(s) ago";
+				diff < 60 && __("just now") ||
+				diff < 120 && __("1 minute ago") ||
+				diff < 3600 && __("{0} minutes ago",[Math.floor( diff / 60 )]) ||
+				diff < 7200 && __("1 hour ago") ||
+				diff < 86400 &&  __("{0} hours ago",[Math.floor( diff / 3600 )])) ||
+			day_diff == 1 && __("Yesterday") ||
+			day_diff < 7 && __("{0} days ago",[day_diff]) ||
+			day_diff < 31 && __("{0} weeks ago",[Math.ceil( day_diff / 7 ) ]) ||
+			day_diff < 365 && __("{0} months ago",[Math.ceil( day_diff / 30)]) ||
+			"> " + __("{0} year(s) ago",[Math.floor( day_diff / 365 )]);
 	}
 }
 

@@ -1737,3 +1737,5 @@ Confirm,确定
 Remove Filter,移除过滤条件
 New Name,新的名称
 Merge with existing,与现有名称合并
+"Filter must have 4 values (doctype, fieldname, condition, value):",过滤类型必须有4个值(文档类型，字段名，条件，值)
+Filter must be a tuple or list (in a list),过滤类型必须是一个列表

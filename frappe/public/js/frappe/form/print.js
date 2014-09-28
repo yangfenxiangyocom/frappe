@@ -14,12 +14,12 @@ frappe.ui.form.PrintPreview = Class.extend({
 				<div class="col-xs-3">\
 					<select class="print-preview-select form-control"></select></div>\
 				<div class="col-xs-3">\
-					<div class="checkbox"><label><input type="checkbox" class="print-letterhead" /> Letterhead</label></div></div>\
+					<div class="checkbox"><label><input type="checkbox" class="print-letterhead" /> ' + __("Letterhead") + '</label></div></div>\
 				<div class="col-xs-6 text-right" style="padding-top: 7px;">\
-					<a style="margin-right: 7px;" class="btn-print-preview text-muted small">Preview</a>\
+					<a style="margin-right: 7px;" class="btn-print-preview text-muted small">' + __("Preview") + '</a>\
 					<a style="margin-right: 7px;" class="btn-download-pdf text-muted small">\
-						<span class="octicon octicon-file-pdf"></span> Download PDF</a>\
-					<strong><a style="margin-right: 7px;" class="btn-print-print">Print</a></strong>\
+						<span class="octicon octicon-file-pdf"></span> ' + __("Download PDF") + '</a>\
+					<strong><a style="margin-right: 7px;" class="btn-print-print">' + __("Print") + '</a></strong>\
 					<a class="close">×</a>\
 				</div>\
 			</div>\
