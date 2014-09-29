@@ -80,7 +80,7 @@ Allowed,允许
 "Allowing DocType, DocType. Be careful!",允许的DocType 。请谨慎操作！
 Already Registered,已注册
 Already in user's To Do list,已经在用户的待办列表中
-Alternative download link,可选下载链接
+Alternative download link,点击链接进行下载
 "Alternatively, you can also specify 'auto_email_id' in site_config.json",另外，您还可以在site_config.json指定auto_email_id
 Always use above Login Id as sender,请务必使用上述登录人作为发件人
 Amend,修改
@@ -228,7 +228,7 @@ Count,计算
 Country,国家
 Create,创建
 Create a new {0},创建一个新{0}
-Created Custom Field {0} in {1},在{1}里面创建自定义字段{0}
+Created Custom Field {0} in {1},在{1}里面已创建自定义字段{0}
 Created Customer Issue,已创建的客户反馈的问题
 Created Opportunity,机会已创建
 Created Support Ticket,客户支持已创建
@@ -300,7 +300,7 @@ DocPerm,文档权限
 DocType,文档类型
 DocType Details,DocType详情
 DocType can not be merged,文档类型不能合并
-DocType on which this Workflow is applicable.,文档类型是适用于工作流的。
+DocType on which this Workflow is applicable.,可以应用工作流的文档类型
 DocType or Field,文档类型或字段
 Doclist JSON,文档列表JSON数据
 Docname,文档名称
@@ -492,7 +492,7 @@ High,高
 Highlight,突出
 History,历史
 Home Page,首页
-Home Page is Products,首页是用来展示展品的
+Home Page is Products,首页显示产品
 ID (name) of the entity whose property is to be set,实体的属性需要被设置
 Icon,图标
 Icon will appear on the button,图标将显示在按钮上
@@ -553,7 +553,7 @@ Is Single,是单个的
 Is Standard,为标准的
 Is Submittable,是可提交的
 Is Task,是任务
-Item cannot be added to its own descendents,不能添加到物品自己的子项中
+Item cannot be added to its own descendents,不能将自己添加为自己的子项
 JavaScript Format: frappe.query_reports['REPORTNAME'] = {},JavaScript的格式: frappe.query_reports [&#39;REPORTNAME&#39;] = {}
 Javascript,Javascript
 Javascript to append to the head section of the page.,Javascript附加到页面的head部分。
@@ -618,7 +618,7 @@ Mandatory,强制的
 Mandatory fields required in {0},{0}中的必填字段
 Mandatory filters required:\n,必填的过滤条件:\n
 Master,主数据
-Max Attachments,最大附件数量
+Max Attachments,最大附件大小
 Max width for type Currency is 100px in row {0},第{0}行中的最大货币宽度是100px
 "Meaning of Submit, Cancel, Amend",提交，取消，修改的含义
 Medium,中等
@@ -681,7 +681,7 @@ No Sidebar,没有侧边栏
 No User Permissions found.,用户权限没有找到
 No data found,没有找到数据
 No file attached,没有附加的文件
-No further records,没有进一步的记录
+No further records,没有记录
 No one,没有人
 No permission to '{0}' {1},没有权限“{0}” {1}
 No permission to edit,无权限进行编辑
@@ -722,7 +722,7 @@ On,On
 "Once you have set this, the users will only be able access documents (eg. Blog Post) where the link exists (eg. Blogger).",一旦你设置这个，那么用户将只能访问有链接关系的文档。
 Only Administrator allowed to create Query / Script Reports,只有管​​理员可以创建查询/报告的脚本
 Only Administrator can save a standard report. Please rename and save.,只有管​​理员可以保存标准的报告。请重新命名并保存。
-Only Allow Edit For,只允许编辑
+Only Allow Edit For,允许编辑角色
 Only allowed {0} rows in one import,一次导入只允许导入{0}行
 Oops! Something went wrong,糟糕！发生了个小问题
 Open,打开
@@ -1530,12 +1530,12 @@ Click on Save,点击保存
 Performing hardcore import process,导入进行中
 All Tables (Main + Child Tables),所有的主表与字表
 Ignore Encoding Errors,忽略编码错误
-"If you are inserting new records (overwrite not checked) \			and if you have submit permission, the record will be submitted.","如果插入新数据(覆盖没有勾选)\在有权限的情况下数据将被提交进数据库"
+"If you are inserting new records (overwrite not checked) and if you have submit permission, the record will be submitted.","如果插入新数据(覆盖没有勾选)\在有权限的情况下数据将被提交进数据库"
 Overwrite,覆盖
-"If you are uploading a child table (for example Item Price), the all the entries of that table will be deleted (for that parent record) and new entries will be made.",如果上传字表的数据，则其主键父表对应的子记录将被删除并重新被创建
+"If you are uploading a child table (for example Item Price), the all the entries of that table will be deleted (for that parent record) and new entries will be made.",如果上传子表的数据，则其主键父表对应的子记录将被删除并重新被创建
 Import Successful!,导入成功
 Import Failed!,导入失败
-"File Name: &lt;your filename&gt;.csv<br />\						Save as type: Text Documents (*.txt)<br />\						Encoding: UTF-8",文件编码是UTF-8并存为.txt文件
+"File Name: &lt;your filename&gt;.csv<br />Save as type: Text Documents (*.txt)<br />Encoding: UTF-8",文件编码是UTF-8并存为.txt文件
 Make a new {0},创建一条{0}的记录
 Editing Row,编辑行
 Shortcuts,快捷方式
@@ -1598,7 +1598,6 @@ Select {0},选择{0}
 No Communication tagged with this {0} yet.,未发现有此标签的沟通记录
 Rename {0},重命名{0}
 Not Set,未设置
-Pending,未完成
 Ordered,已下单
 Created,已创建
 Assigned,已分配
@@ -1664,7 +1663,7 @@ Main Table,主表
 Child Tables,子表
 Please set User ID field in an Employee record to set Employee Role,设置员工角色请在员工记录里面设置到此用户账号会自动关联
 Select Document Types to set which User Permissions are used to limit access.,选择要通过用户权限限制访问的文档类型
-Edit Role Permissions,编辑用户权限
+Edit Role Permissions,编辑角色权限
 Scheduler Errors,定时计划器错误报告
 Default Weekly Digest,默认每周摘要
 Scheduler Failed Events,定时器事件失败报告
@@ -1739,3 +1738,5 @@ New Name,新的名称
 Merge with existing,与现有名称合并
 "Filter must have 4 values (doctype, fieldname, condition, value):",过滤类型必须有4个值(文档类型，字段名，条件，值)
 Filter must be a tuple or list (in a list),过滤类型必须是一个列表
+Download PDF,下载PDF
+Letterhead,信头

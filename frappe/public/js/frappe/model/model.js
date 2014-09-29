@@ -105,7 +105,12 @@ $.extend(frappe.model, {
 					doctype: doctype,
 					name: name
 				},
-				callback: function(r) { callback(name, r); }
+				callback: function(r) { 
+					if(r.translated_message)
+						$.extend(frappe._messages, r.translated_message);
+
+					callback(name, r); 
+				}
 			});
 		}
 	},

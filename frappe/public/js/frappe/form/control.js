@@ -94,7 +94,7 @@ frappe.ui.form.ControlHTML = frappe.ui.form.Control.extend({
 		this.disp_area = this.wrapper;
 		this.$wrapper.on("refresh", function() {
 			if(me.df.options)
-				me.$wrapper.html(me.df.options);
+				me.$wrapper.html(__(me.df.options));
 		})
 	},
 	html: function(html) {

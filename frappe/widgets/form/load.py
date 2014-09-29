@@ -8,6 +8,7 @@ import frappe.defaults
 import frappe.widgets.form.meta
 from frappe.permissions import get_doc_permissions
 from frappe import _
+from frappe.translate import get_messages_from_report,make_dict_from_messages
 
 @frappe.whitelist()
 def getdoc(doctype, name, user=None):
@@ -43,6 +44,9 @@ def getdoc(doctype, name, user=None):
 
 	if doc and not name.startswith('_'):
 		frappe.user.update_recent(doctype, name)
+
+	if(doctype == "Report"):
+		frappe.response["translated_message"] = make_dict_from_messages(get_messages_from_report(name))
 
 	frappe.response.docs.append(doc)
 

@@ -17,6 +17,9 @@ Contributing:
 # frappe._
 
 import frappe, os, re, codecs, json
+from frappe.utils.jinja import render_include
+from jinja2 import TemplateError
+logger = frappe.get_logger()
 
 def guess_language_from_http_header(lang):
 	"""set frappe.local.lang from HTTP headers at beginning of request"""
@@ -198,7 +201,7 @@ def get_messages_from_doctype(name):
 	for d in meta.get("fields"):
 		messages.extend([d.label, d.description])
 
-		if d.fieldtype=='Select' and d.options \
+		if (d.fieldtype=='Select' or d.fieldtype == "HTML") and d.options \
 			and not d.options.startswith("attach_files:"):
 			options = d.options.split('\n')
 			if not "icon" in options[0]:
@@ -212,6 +215,7 @@ def get_messages_from_doctype(name):
 	# extract from js, py files
 	doctype_file_path = frappe.get_module_path(meta.module, "doctype", meta.name, meta.name)
 	messages.extend(get_messages_from_file(doctype_file_path + ".js"))
+	messages.extend(get_messages_from_file(doctype_file_path + "_list.js"))
 	return clean(messages)
 
 def get_messages_from_page(name):
@@ -231,6 +235,7 @@ def get_messages_from_page_or_report(doctype, name, module=None):
 		module = frappe.db.get_value(doctype, name, "module")
 	file_path = frappe.get_module_path(module, doctype, name, name)
 	messages = get_messages_from_file(file_path + ".js")
+	messages = get_messages_from_file(file_path + "_list.js")
 	messages += get_messages_from_file(file_path + ".html")
 	messages += get_messages_from_file(file_path + ".py")
 
@@ -264,6 +269,14 @@ def get_messages_from_file(path):
 		return []
 
 def extract_messages_from_code(code, is_py=False):
+	try:
+		code = render_include(code)
+	except TemplateError:
+		# Exception will occur when it encounters John Resig's microtemplating code
+		pass
+
+	frappe.log(code)
+
 	messages = []
 	messages += re.findall('_\("([^"]*)"', code)
 	messages += re.findall("_\('([^']*)'", code)

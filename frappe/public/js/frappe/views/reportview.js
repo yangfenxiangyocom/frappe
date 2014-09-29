@@ -23,18 +23,20 @@ frappe.views.ReportViewPage = Class.extend({
 
 		var me = this;
 		frappe.model.with_doctype(this.doctype, function() {
-			me.make_report_view();
 			if(me.docname) {
 				frappe.model.with_doc('Report', me.docname, function(r) {
+					me.make_report_view();
 					me.page.reportview.set_columns_and_filters(
 						JSON.parse(frappe.get_doc("Report", me.docname).json));
 					me.page.reportview.set_route_filters();
 					me.page.reportview.run();
 				});
 			} else {
+				me.make_report_view();
 				me.page.reportview.set_route_filters();
 				me.page.reportview.run();
 			}
+			
 		});
 	},
 	make_page: function() {
@@ -51,7 +53,8 @@ frappe.views.ReportViewPage = Class.extend({
 	},
 	make_report_view: function() {
 		var module = locals.DocType[this.doctype].module;
-		this.page.appframe.set_title(__(this.doctype));
+		var page_title = __('Report')+ ': ' + (this.docname ? (__(this.doctype )+ ' - ' + __(this.docname)) : __(this.doctype));
+		this.page.appframe.set_title(page_title)
 		this.page.appframe.add_module_icon(module, this.doctype);
 		this.page.appframe.set_title_left(function() { frappe.set_route((frappe.get_module(module) || {}).link); });
 		this.page.appframe.set_views_for(this.doctype, "report");
@@ -89,8 +92,6 @@ frappe.views.ReportView = frappe.ui.Listing.extend({
 
 	setup: function() {
 		var me = this;
-		this.page_title = __('Report')+ ': ' + (this.docname ? (__(this.doctype )+ ' - ' + __(this.docname)) : __(this.doctype));
-		this.page.appframe.set_title(this.page_title)
 		this.make({
 			appframe: this.page.appframe,
 			method: 'frappe.widgets.reportview.get',
