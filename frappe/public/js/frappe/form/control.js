@@ -192,7 +192,7 @@ frappe.ui.form.ControlInput = frappe.ui.form.Control.extend({
 					$(me.input_area).find("input").prop("disabled", false);
 					!me.has_input && me.make_input();
 					if(me.doctype && me.docname)
-						me.set_input(me.value);
+						me.set_input(__(me.value));
 				} else {
 					$(me.input_area).toggle(false);
 					$(me.input_area).find("input").prop("disabled", true);
@@ -933,7 +933,6 @@ frappe.ui.form.ControlLink = frappe.ui.form.ControlData.extend({
 					}
 					return false;
 				}
-
 				if(me.frm && me.frm.doc) {
 					me.selected = true;
 					me.parse_validate_and_set_in_model(ui.item.value);
