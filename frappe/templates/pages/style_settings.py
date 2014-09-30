@@ -55,8 +55,8 @@ def prepare(doc):
 		}.get(doc.heading_text_as) or ""
 
 	doc.at_import = ""
-	for f in fonts:
-		doc.at_import += "\n@import url(https://fonts.googleapis.com/css?family=%s:400,700);" % f.replace(" ", "+")
+	#for f in fonts:
+	#	doc.at_import += "\n@import url(https://fonts.googleapis.com/css?family=%s:400,700);" % f.replace(" ", "+")
 
 	# move @import from add_css field to the top of the css file
 	if doc.add_css and "@import url" in doc.add_css:

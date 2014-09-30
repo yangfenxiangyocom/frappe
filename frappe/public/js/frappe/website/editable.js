@@ -20,8 +20,8 @@ frappe.make_editable = function(editor, doctype, name, fieldname) {
 				$('li.editable-toggle').remove();
 				
 				var $edit_btn = $(repl('<li class="editable-toggle">\
-					<a href="#"><i class="icon-fixed-width icon-pencil"></i>Edit %(doctype)s</a></li>\
-					<li class="divider"></li>', {doctype: doctype}))
+					<a href="#"><i class="icon-fixed-width icon-pencil"></i>' + __("Edit") + ' %(doctype)s</a></li>\
+					<li class="divider"></li>', {doctype: __(doctype) }))
 					.prependTo($("#website-post-login ul.dropdown-menu"));
 			
 				$edit_btn.find("a")

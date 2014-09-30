@@ -68,7 +68,7 @@ Admin,管理员
 All Applications,所有应用
 All Day,全天
 All customizations will be removed. Please confirm.,所有自定义选项都会被移除;请确认您的操作
-"All possible Workflow States and roles of the workflow. <br>Docstatus Options: 0 is""Saved"", 1 is ""Submitted"" and 2 is ""Cancelled""",所有可能的工作流程状态和工作流的角色。 <br> Docstatus选项：0是“保存”，1“已提交”和2“取消”
+"All possible Workflow States and roles of the workflow. <br>Docstatus Options: 0 is""Saved"", 1 is ""Submitted"" and 2 is ""Cancelled""",所有可能的工作流程状态和工作流的角色。 <br> 文档状态选项：0是“保存”，1“已提交”和2“取消”
 Allow Attach,允许附加
 Allow Import,允许导入
 Allow Import via Data Import Tool,允许通过数据导入工具导入
@@ -1029,9 +1029,9 @@ Showing only for (if not empty),仅显示为（如果不为空）
 Sidebar,边栏
 Sidebar Items,边栏项目
 Sidebar Links for Home Page only,主页的边栏链接
-Sign Up,报名
+Sign Up,注册
 Sign in,登录
-Sign up,报名
+Sign up,注册
 Single Post (article).,单个帖子(文章)
 Single Types have only one record no tables associated. Values are stored in tabSingles,单一类型只有一个记录。值被存储在tabSingles
 Sitemap Browser,网站地图浏览
@@ -1530,7 +1530,7 @@ Click on Save,点击保存
 Performing hardcore import process,导入进行中
 All Tables (Main + Child Tables),所有的主表与字表
 Ignore Encoding Errors,忽略编码错误
-"If you are inserting new records (overwrite not checked) and if you have submit permission, the record will be submitted.","如果插入新数据(覆盖没有勾选)\在有权限的情况下数据将被提交进数据库"
+"If you are inserting new records (overwrite not checked) and if you have submit permission, the record will be submitted.","如果插入新数据(覆盖没有勾选).在有权限的情况下数据将被提交进数据库"
 Overwrite,覆盖
 "If you are uploading a child table (for example Item Price), the all the entries of that table will be deleted (for that parent record) and new entries will be made.",如果上传子表的数据，则其主键父表对应的子记录将被删除并重新被创建
 Import Successful!,导入成功
@@ -1637,8 +1637,8 @@ Rejected,已拒绝
 Comment Type,评论类型
 You can start by selecting backup frequency and granting access for sync,你可以设置同步权限以及同步频率
 Export to Fixtures,导出
-"Brand is what appears on the top-left of the toolbar. If it is an image, make sure it\nhas a transparent background and use the &lt;img /&gt; tag. Keep size as 200px x 30px",品牌形象会出现在顶部左边。如果是图像请确保是透明背景的图片。大小为200 * 300
-"Link for About Us Page is ""/about""","关于我们的链接为""/about"""
+"Brand is what appears on the top-left of the toolbar. If it is an image, make sure it has a transparent background and use the &lt;img /&gt; tag. Keep size as 200px x 30px",品牌形象会出现在顶部左边。如果是图像请确保是透明背景的图片。大小为200 * 300
+"<div class=""alert"">Link for About Us Page is ""/about""</div>","<div class=""alert"">关于我们的链接为""/about""</div>"
 "Link for Contact Page Page is ""/contact""","联系我们的链接为""/contact"""
 "For Links, enter the DocType as range\nFor Select, enter list of Options separated by comma",如果是链接则请输入文档类型为范围；如果是选择则输入以逗号分隔的选项
 "Print Width of the field, if the field is a column in a table",如果是字段是表中的列的话可以设置列的打印宽度
@@ -1740,5 +1740,11 @@ Merge with existing,与现有名称合并
 Filter must be a tuple or list (in a list),过滤类型必须是一个列表
 Download PDF,下载PDF
 Letterhead,信头
+This Workflow is active.,此工作流程是有效状态
 "For Links, enter the DocType as range<br/>For Select, enter list of Options separated by comma","对于链接，键入DocType为范围;对于选择，以逗号分隔键入选择列表"
 "This field will appear only if the fieldname defined here has value OR the rules are true (examples): <br>myfield <br>eval:doc.myfield=='My Value'<br>eval:doc.age>18","此字段将显示仅当定义的字段名有值或规则是真的时候;例如: eval:doc.age>18"
+Loading versions,载入版本中
+Welcome to ERP Boost. Please select your language to begin the Setup Wizard.,欢迎来到ERP Boost。请选择系统默认语言
+The first user will become the System Manager (you can change that later),第一个用户会成为系统管理员
+Company Abbreviation cannot have more than 5 characters,公司简称不能大于5个字符
+"e.g. Build tools for builders",例如汽车零部件生产

@@ -1,7 +1,8 @@
+# coding=utf-8
 app_name = "frappe"
-app_title = "Frappe Framework"
-app_publisher = "Web Notes Technologies Pvt. Ltd."
-app_description = "Full Stack Web Application Framework in Python"
+app_title = "ERP Boost 框架"
+app_publisher = "ERP Boost Your Business"
+app_description = "企业Web应用程序框架"
 app_icon = "assets/frappe/images/frappe.svg"
 app_version = "4.4.3"
 app_color = "#3498db"

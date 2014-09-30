@@ -5,15 +5,10 @@ frappe.ui.misc.about = function() {
 
 		$(d.body).html(repl("<div>\
 		<p>"+__("Open Source Web Applications for the Web")+"</p>  \
-		<p><i class='icon-globe icon-fixed-width'></i>\
-			 Website: <a href='https://frappe.io' target='_blank'>https://frappe.io</a></p>\
-	 	<p><i class='icon-github icon-fixed-width'></i>\
-			Source: <a href='https://github.com/frappe' target='_blank'>https://github.com/frappe</a></p>\
-		<hr>\
 		<h4>Installed Apps</h4>\
-		<div id='about-app-versions'>Loading versions...</div>\
+		<div id='about-app-versions'>" + __("Loading versions") + "...</div>\
 		<hr>\
-		<p class='text-muted'>&copy; 2014 Web Notes Technologies Pvt. Ltd and contributers </p> \
+		<p class='text-muted'>&copy; 2014 ERP Boost All rights reserved </p> \
 		</div>", frappe.app));
 
 		frappe.ui.misc.about_dialog = d;
