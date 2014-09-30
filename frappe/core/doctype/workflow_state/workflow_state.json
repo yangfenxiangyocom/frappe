@@ -10,7 +10,7 @@
   {
    "fieldname": "workflow_state_name", 
    "fieldtype": "Data", 
-   "label": "State", 
+   "label": "Workflow State", 
    "permlevel": 0, 
    "reqd": 1
   }, 
@@ -35,7 +35,7 @@
  ], 
  "icon": "icon-flag", 
  "idx": 1, 
- "modified": "2014-01-20 17:49:35.000000", 
+ "modified": "2014-09-29 17:49:35.000000", 
  "modified_by": "Administrator", 
  "module": "Core", 
  "name": "Workflow State", 

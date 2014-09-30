@@ -1740,3 +1740,5 @@ Merge with existing,与现有名称合并
 Filter must be a tuple or list (in a list),过滤类型必须是一个列表
 Download PDF,下载PDF
 Letterhead,信头
+"For Links, enter the DocType as range<br/>For Select, enter list of Options separated by comma","对于链接，键入DocType为范围;对于选择，以逗号分隔键入选择列表"
+"This field will appear only if the fieldname defined here has value OR the rules are true (examples): <br>myfield <br>eval:doc.myfield=='My Value'<br>eval:doc.age>18","此字段将显示仅当定义的字段名有值或规则是真的时候;例如: eval:doc.age>18"

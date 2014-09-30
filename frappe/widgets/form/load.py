@@ -45,7 +45,7 @@ def getdoc(doctype, name, user=None):
 	if doc and not name.startswith('_'):
 		frappe.user.update_recent(doctype, name)
 
-	if(doctype == "Report"):
+	if(doctype == "Report" and 	frappe.lang != "en"):
 		frappe.response["translated_message"] = make_dict_from_messages(get_messages_from_report(name))
 
 	frappe.response.docs.append(doc)

@@ -195,7 +195,7 @@ def get_messages_from_doctype(name):
 	messages = []
 	meta = frappe.get_meta(name)
 
-	messages = [meta.name, meta.module]
+	messages = [meta.name, meta.module,meta.description]
 
 	# translations of field labels, description and options
 	for d in meta.get("fields"):
@@ -235,7 +235,7 @@ def get_messages_from_page_or_report(doctype, name, module=None):
 		module = frappe.db.get_value(doctype, name, "module")
 	file_path = frappe.get_module_path(module, doctype, name, name)
 	messages = get_messages_from_file(file_path + ".js")
-	messages = get_messages_from_file(file_path + "_list.js")
+	messages += get_messages_from_file(file_path + "_list.js")
 	messages += get_messages_from_file(file_path + ".html")
 	messages += get_messages_from_file(file_path + ".py")
 
@@ -274,8 +274,6 @@ def extract_messages_from_code(code, is_py=False):
 	except TemplateError:
 		# Exception will occur when it encounters John Resig's microtemplating code
 		pass
-
-	frappe.log(code)
 
 	messages = []
 	messages += re.findall('_\("([^"]*)"', code)

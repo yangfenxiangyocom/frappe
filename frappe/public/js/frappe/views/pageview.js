@@ -28,6 +28,10 @@ frappe.views.pageview = {
 				args: {'name':name },
 				callback: function(r) {
 					localStorage["_page:" + name] = JSON.stringify(r.docs);
+					if(r.__messages) {
+						$.extend(frappe._messages, r.__messages);
+					}
+
 					callback();
 				}
 			});
