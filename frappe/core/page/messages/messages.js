@@ -6,7 +6,7 @@ frappe.provide('frappe.core.pages.messages');
 frappe.pages.messages.onload = function(wrapper) {
 	frappe.ui.make_app_page({
 		parent: wrapper,
-		title: "Messages"
+		title: __("Messages")
 	});
 
 	$('<div style="margin-bottom: 15px;">\

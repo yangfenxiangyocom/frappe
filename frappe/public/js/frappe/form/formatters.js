@@ -69,7 +69,7 @@ frappe.form.formatters = {
 			return repl('%(icon)s<a href="#Form/%(doctype)s/%(name)s">%(label)s</a>', {
 				doctype: encodeURIComponent(doctype),
 				name: encodeURIComponent(value),
-				label: value,
+				label: __(value),
 				icon: (options && options.no_icon) ? "" :
 					('<i class="icon-fixed-width '+frappe.boot.doctype_icons[doctype]+'"></i> ')
 			});
@@ -104,7 +104,7 @@ frappe.form.formatters = {
 		$.each((value || "").split(","), function(i, v) {
 			if(v) html+= '<span class="label label-info" \
 				style="margin-right: 7px; cursor: pointer;"\
-				data-field="_user_tags" data-label="'+v+'">'+v +'</span>';
+				data-field="_user_tags" data-label="'+v+'">'+ __(v) +'</span>';
 		});
 		return html;
 	},

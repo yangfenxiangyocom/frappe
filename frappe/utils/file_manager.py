@@ -147,7 +147,7 @@ def get_file_data_from_hash(content_hash):
 
 def save_file_on_filesystem(fname, content, content_type=None):
 	public_path = os.path.join(frappe.local.site_path, "public")
-	fpath = write_file(content, get_files_path(), fname)
+	fpath = write_file(content, get_files_path().encode('utf-8'), fname.encode('utf-8'))
 	path =  os.path.relpath(fpath, public_path)
 	return {
 		'file_name': os.path.basename(path),
@@ -168,11 +168,11 @@ def check_max_file_size(content):
 def write_file(content, file_path, fname):
 	"""write file to disk with a random name (to compare)"""
 	# create directory (if not exists)
-	frappe.create_folder(get_files_path())
+	frappe.create_folder(get_files_path().encode('utf-8'))
 	# write the file
-	with open(os.path.join(file_path, fname), 'w+') as f:
+	with open(os.path.join(file_path.encode('utf-8'), fname.encode('utf-8')), 'w+') as f:
 		f.write(content)
-	return get_files_path(fname)
+	return get_files_path(fname).encode('utf-8')
 
 def remove_all(dt, dn):
 	"""remove all files in a transaction"""
@@ -224,8 +224,8 @@ def delete_file_from_filesystem(doc):
 		path = frappe.utils.get_site_path("public", doc.file_name)
 	else:
 		path = frappe.utils.get_site_path("public", "files", doc.file_name)
-	if os.path.exists(path):
-		os.remove(path)
+	if os.path.exists(path.encode('utf-8')):
+		os.remove(path.encode('utf-8'))
 
 def get_file(fname):
 	f = frappe.db.sql("""select file_name from `tabFile Data`
@@ -251,7 +251,7 @@ def get_content_hash(content):
 
 def get_file_name(fname, optional_suffix):
 	n_records = frappe.db.sql("select name from `tabFile Data` where file_name=%s", fname)
-	if len(n_records) > 0 or os.path.exists(get_files_path(fname)):
+	if len(n_records) > 0 or os.path.exists(get_files_path(fname).encode('utf-8')):
 		f = fname.rsplit('.', 1)
 		if len(f) == 1:
 			partial, extn = f[0], ""

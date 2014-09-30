@@ -91,7 +91,7 @@
    "precision": ""
   }, 
   {
-   "description": "For Links, enter the DocType as range\nFor Select, enter list of Options separated by comma", 
+   "description": "For Links, enter the DocType as range<br/>For Select, enter list of Options separated by comma", 
    "fieldname": "options", 
    "fieldtype": "Text", 
    "hidden": 0, 
@@ -112,7 +112,7 @@
    "precision": ""
   }, 
   {
-   "description": "This field will appear only if the fieldname defined here has value OR the rules are true (examples): <br>\nmyfield\neval:doc.myfield=='My Value'<br>\neval:doc.age>18", 
+   "description": "This field will appear only if the fieldname defined here has value OR the rules are true (examples): <br>myfield <br>eval:doc.myfield=='My Value'<br>eval:doc.age>18", 
    "fieldname": "depends_on", 
    "fieldtype": "Data", 
    "hidden": 0, 
@@ -278,7 +278,7 @@
  "idx": 1, 
  "issingle": 0, 
  "istable": 1, 
- "modified": "2014-09-05 07:41:29.641454", 
+ "modified": "2014-09-30 10:41:29.641454", 
  "modified_by": "Administrator", 
  "module": "Core", 
  "name": "Customize Form Field", 

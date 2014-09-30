@@ -3,6 +3,7 @@
 
 from __future__ import unicode_literals
 import frappe, json
+from frappe import throw, _
 from frappe.widgets.form.load import run_onload
 
 @frappe.whitelist()
@@ -18,7 +19,7 @@ def savedocs():
 			doc.save()
 		except frappe.NameError, e:
 			doctype, name, original_exception = e if isinstance(e, tuple) else (doc.doctype or "", doc.name or "", None)
-			frappe.msgprint(frappe._("{0} {1} already exists").format(doctype, name))
+			frappe.msgprint(frappe._("{0} {1} already exists").format(_(doctype), name))
 			raise
 
 		# update recent documents

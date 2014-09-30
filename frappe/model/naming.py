@@ -26,7 +26,7 @@ def set_new_name(doc):
 		if autoname.startswith('field:'):
 			n = doc.get(autoname[6:])
 			if not n:
-				raise Exception, 'Name is required'
+				raise Exception, _('Name is required')
 			doc.name = n.strip()
 
 		elif autoname.startswith("naming_series:"):

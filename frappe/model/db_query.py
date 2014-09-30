@@ -221,10 +221,10 @@ class DatabaseQuery(object):
 			f = self.make_filter_tuple(key, value)
 
 		if not isinstance(f, (list, tuple)):
-			frappe.throw("Filter must be a tuple or list (in a list)")
+			frappe.throw(_("Filter must be a tuple or list (in a list)"))
 
 		if len(f) != 4:
-			frappe.throw("Filter must have 4 values (doctype, fieldname, condition, value): " + str(f))
+			frappe.throw(_("Filter must have 4 values (doctype, fieldname, condition, value):") + str(f))
 
 		return f
 

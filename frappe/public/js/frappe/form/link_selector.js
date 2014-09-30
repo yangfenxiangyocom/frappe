@@ -73,10 +73,11 @@ frappe.ui.form.LinkSelector = Class.extend({
 				parent.empty();
 				if(r.values.length) {
 					$.each(r.values, function(i, v) {
-						var row = $(repl('<p><b><a href="#" data-value="%(name)s">%(name)s</a></b> \
+						var row = $(repl('<p><b><a href="#" data-value="%(name)s">%(display_name)s</a></b> \
 							<span class="text-muted">%(values)s</span></p>', {
 								name: v[0],
-								values: v.splice(1).join(", ")
+								display_name: __(v[0]),
+								values: __(v.splice(1).join(", "))
 							})).appendTo(parent);
 
 						row.find("a").click(function() {

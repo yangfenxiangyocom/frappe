@@ -94,7 +94,7 @@ frappe.ui.form.ControlHTML = frappe.ui.form.Control.extend({
 		this.disp_area = this.wrapper;
 		this.$wrapper.on("refresh", function() {
 			if(me.df.options)
-				me.$wrapper.html(me.df.options);
+				me.$wrapper.html(__(me.df.options));
 		})
 	},
 	html: function(html) {
@@ -192,7 +192,7 @@ frappe.ui.form.ControlInput = frappe.ui.form.Control.extend({
 					$(me.input_area).find("input").prop("disabled", false);
 					!me.has_input && me.make_input();
 					if(me.doctype && me.docname)
-						me.set_input(me.value);
+						me.set_input(__(me.value));
 				} else {
 					$(me.input_area).toggle(false);
 					$(me.input_area).find("input").prop("disabled", true);
@@ -294,7 +294,7 @@ frappe.ui.form.ControlData = frappe.ui.form.ControlInput.extend({
 		this.$input
 			.attr("data-fieldtype", this.df.fieldtype)
 			.attr("data-fieldname", this.df.fieldname)
-			.attr("placeholder", this.df.placeholder || "")
+			.attr("placeholder", __(this.df.placeholder)|| "")
 		if(this.doctype)
 			this.$input.attr("data-doctype", this.doctype);
 		if(this.df.input_css)
@@ -933,7 +933,6 @@ frappe.ui.form.ControlLink = frappe.ui.form.ControlData.extend({
 					}
 					return false;
 				}
-
 				if(me.frm && me.frm.doc) {
 					me.selected = true;
 					me.parse_validate_and_set_in_model(ui.item.value);

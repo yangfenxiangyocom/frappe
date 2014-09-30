@@ -22,7 +22,7 @@
 				label-{{%= frappe.utils.guess_style(doc.status) %}} filterable"
 				title="{{%= __("Title") %}}"
 				data-filter="status,=,{{%= doc.status %}}">
-				{{%= doc.status %}}
+				{{%= __(doc.status) %}}
 			</span>
 		</div>
 	</div>

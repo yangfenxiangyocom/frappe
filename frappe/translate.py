@@ -19,6 +19,7 @@ Contributing:
 import frappe, os, re, codecs, json
 from frappe.utils.jinja import render_include
 from jinja2 import TemplateError
+logger = frappe.get_logger()
 
 def guess_language_from_http_header(lang):
 	"""set frappe.local.lang from HTTP headers at beginning of request"""
@@ -194,16 +195,13 @@ def get_messages_from_doctype(name):
 	messages = []
 	meta = frappe.get_meta(name)
 
-	messages = [meta.name, meta.module]
-
-	if meta.description:
-		messages.append(meta.description)
+	messages = [meta.name, meta.module,meta.description]
 
 	# translations of field labels, description and options
 	for d in meta.get("fields"):
 		messages.extend([d.label, d.description])
 
-		if d.fieldtype=='Select' and d.options \
+		if (d.fieldtype=='Select' or d.fieldtype == "HTML") and d.options \
 			and not d.options.startswith("attach_files:"):
 			options = d.options.split('\n')
 			if not "icon" in options[0]:
@@ -218,8 +216,6 @@ def get_messages_from_doctype(name):
 	doctype_file_path = frappe.get_module_path(meta.module, "doctype", meta.name, meta.name)
 	messages.extend(get_messages_from_file(doctype_file_path + ".js"))
 	messages.extend(get_messages_from_file(doctype_file_path + "_list.js"))
-	messages.extend(get_messages_from_file(doctype_file_path + "_list.html"))
-	messages.extend(get_messages_from_file(doctype_file_path + "_calendar.js"))
 	return clean(messages)
 
 def get_messages_from_page(name):
@@ -239,6 +235,7 @@ def get_messages_from_page_or_report(doctype, name, module=None):
 		module = frappe.db.get_value(doctype, name, "module")
 	file_path = frappe.get_module_path(module, doctype, name, name)
 	messages = get_messages_from_file(file_path + ".js")
+	messages += get_messages_from_file(file_path + "_list.js")
 	messages += get_messages_from_file(file_path + ".html")
 	messages += get_messages_from_file(file_path + ".py")
 
@@ -381,10 +378,8 @@ def rebuild_all_translation_files():
 		for app in frappe.get_all_apps():
 			write_translations_file(app, lang)
 
-def write_translations_file(app, lang, full_dict=None, app_messages=None):
-	if not app_messages:
-		app_messages = get_messages_for_app(app)
-
+def write_translations_file(app, lang, full_dict=None):
+	app_messages = get_messages_for_app(app)
 	if not app_messages:
 		return
 

@@ -4,6 +4,7 @@
 # Search
 from __future__ import unicode_literals
 import frappe
+from frappe import _, throw
 import frappe.widgets.reportview
 from frappe.utils import cstr, unique
 
@@ -99,7 +100,7 @@ def get_std_fields_list(meta, key):
 def build_for_autosuggest(res):
 	results = []
 	for r in res:
-		out = {"value": r[0], "description": ", ".join(unique(cstr(d) for d in r)[1:])}
+		out = {"value": r[0], "description": ", ".join(unique(cstr(_(d)) for d in r)[1:])}
 		results.append(out)
 	return results
 

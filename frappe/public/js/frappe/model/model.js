@@ -105,7 +105,12 @@ $.extend(frappe.model, {
 					doctype: doctype,
 					name: name
 				},
-				callback: function(r) { callback(name, r); }
+				callback: function(r) { 
+					if(r.translated_message)
+						$.extend(frappe._messages, r.translated_message);
+
+					callback(name, r); 
+				}
 			});
 		}
 	},
@@ -375,7 +380,7 @@ $.extend(frappe.model, {
 			fields: [
 				{label:__("New Name"), fieldtype:"Data", reqd:1},
 				{label:__("Merge with existing"), fieldtype:"Check", fieldname:"merge"},
-				{label:__("Rename"), fieldtype: "Button"}
+				{label:__("Rename"), fieldtype: "Button",fieldname:"rename"}
 			]
 		});
 		d.get_input("rename").on("click", function() {

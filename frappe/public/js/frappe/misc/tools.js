@@ -30,7 +30,7 @@ frappe.tools.downloadify = function(data, roles, me) {
 		var msgobj = msgprint($.format('<p id="{0}"></p><hr><a id="alternative-download">{1}</a>',[
 					id, __('Alternative download link')]));
 		msgobj.$wrapper.find("#alternative-download").on("click", function() { download_from_server(); });
-
+/*
 		Downloadify.create(id ,{
 			filename: function(){
 				return me.title + '.csv';
@@ -48,6 +48,7 @@ frappe.tools.downloadify = function(data, roles, me) {
 			transparent: true,
 			append: false
 		});
+*/
 	}
 };
 
