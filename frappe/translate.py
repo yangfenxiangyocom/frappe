@@ -74,7 +74,10 @@ def get_user_lang(user=None):
 	return lang
 
 def set_default_language(language):
-	lang = get_lang_dict()[language]
+	if(language == 'zh-cn'):
+		lang = 'zh-cn'
+	else:
+		lang = get_lang_dict()[language]
 	frappe.db.set_default("lang", lang)
 	frappe.local.lang = lang
 
