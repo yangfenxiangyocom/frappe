@@ -47,6 +47,7 @@
 	],
 	"js/frappe.min.js": [
 		"public/js/lib/jquery/jquery.ui.min.js",
+		"public/js/lib/jquery/datepicker.zh.cn.js",
 		"public/js/lib/tag-it.min.js",
 		"public/js/lib/jquery/jquery.hotkeys.js",
 		"public/js/lib/center_image.js",

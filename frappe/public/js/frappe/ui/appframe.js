@@ -10,6 +10,11 @@ frappe.ui.AppFrame = Class.extend({
 		this.fields_dict = {};
 		this.parent = parent;
 
+		//set date picker localization
+		if(__("Document Status") == '文档状态'){
+			$.datepicker.regional[ 'zh-CN'] ;
+		}
+
 		var $center = parent.find(".titlebar-center-item");
 		this.$title_area = $('<span class="title-area">\
 				<span class="title-icon text-muted" style="display: none"></span>\

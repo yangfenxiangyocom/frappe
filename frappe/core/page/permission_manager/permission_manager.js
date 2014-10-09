@@ -596,5 +596,5 @@ var permissions_help = ['<table class="table table-bordered" style="background-c
 '</table>',
 '<p>',
 	__("If these instructions where not helpful, please add in your suggestions on GitHub Issues.")
-	+ ' (<a href="https://github.com/frappe/frappe/issues" target="_blank">' + __("Submit an Issue") + '</a>)',
+	+ ' (<a href="https://www.erpboost.com" target="_blank">' + __("Submit an Issue") + '</a>)',
 '</p>'].join("\n");
