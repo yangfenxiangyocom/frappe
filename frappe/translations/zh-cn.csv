@@ -1637,9 +1637,9 @@ Rejected,已拒绝
 Comment Type,评论类型
 You can start by selecting backup frequency and granting access for sync,你可以设置同步权限以及同步频率
 Export to Fixtures,导出
-"Brand is what appears on the top-left of the toolbar. If it is an image, make sure it has a transparent background and use the &lt;img /&gt; tag. Keep size as 200px x 30px",品牌形象会出现在顶部左边。如果是图像请确保是透明背景的图片。大小为200 * 300
+"Brand is what appears on the top-left of the toolbar. If it is an image, make sure it\nhas a transparent background and use the &lt;img /&gt; tag. Keep size as 200px x 30px",品牌形象会出现在顶部左边。如果是图像请确保是透明背景的图片。大小为200 * 300
 "<div class=""alert"">Link for About Us Page is ""/about""</div>","<div class=""alert"">关于我们的链接为""/about""</div>"
-"Link for Contact Page Page is ""/contact""","联系我们的链接为""/contact"""
+"<div class=""alert"">Link for Contact Page Page is ""/contact""</div>","<div class=""alert"">联系我们的链接为""/contact""</div>"
 "For Links, enter the DocType as range\nFor Select, enter list of Options separated by comma",如果是链接则请输入文档类型为范围；如果是选择则输入以逗号分隔的选项
 "Print Width of the field, if the field is a column in a table",如果是字段是表中的列的话可以设置列的打印宽度
 "This field will appear only if the fieldname defined here has value OR the rules are true (examples): <br>\nmyfield\neval:doc.myfield=='My Value'<br>\neval:doc.age>18","此字段将显示仅当定义的字段名有值或规则是真的时候;例如: <br>\nmyfield\neval:doc.myfield=='My Value'
@@ -1748,3 +1748,5 @@ Welcome to ERP Boost. Please select your language to begin the Setup Wizard.,欢
 The first user will become the System Manager (you can change that later),第一个用户会成为系统管理员
 Company Abbreviation cannot have more than 5 characters,公司简称不能大于5个字符
 "e.g. Build tools for builders",例如汽车零部件生产
+Last Modified By,上次修改人
+Last Modifed On,上次修改时间

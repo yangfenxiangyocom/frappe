@@ -17,10 +17,10 @@ frappe.ui.form.InfoBar = Class.extend({
 
 		this.$timestamp = this.appframe.add_icon_btn("2", "icon-user", __("Creation / Modified By"),
 			function() {
-				msgprint("Created By: " + frappe.user.full_name(me.frm.doc.owner) + "<br>" +
-					"Created On: " + comment_when(me.frm.doc.creation) + "<br>" +
-					"Last Modified By: " + frappe.user.full_name(me.frm.doc.modified_by) + "<br>" +
-					"Last Modifed On: " + comment_when(me.frm.doc.modified))
+				msgprint(__("Created By") + ": " + frappe.user.full_name(me.frm.doc.owner) + "<br>" +
+					__("Created On") + ": " + comment_when(me.frm.doc.creation) + "<br>" +
+					__("Last Modified By") + ": " + frappe.user.full_name(me.frm.doc.modified_by) + "<br>" +
+					__("Last Modifed On") + ": " + comment_when(me.frm.doc.modified))
 			});
 
 		this.$comments = this.appframe.add_icon_btn("2", "icon-comments", __("Comments"), function() {
