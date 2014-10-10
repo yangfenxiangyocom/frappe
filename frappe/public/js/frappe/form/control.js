@@ -192,7 +192,13 @@ frappe.ui.form.ControlInput = frappe.ui.form.Control.extend({
 					$(me.input_area).find("input").prop("disabled", false);
 					!me.has_input && me.make_input();
 					if(me.doctype && me.docname)
-						me.set_input(__(me.value));
+					{
+						//hotfix, if type is Link, no translation
+						if(me.df.fieldtype==="Link") 
+							me.set_input(__(me.value));
+						else
+							me.set_input(me.value);
+					}
 				} else {
 					$(me.input_area).toggle(false);
 					$(me.input_area).find("input").prop("disabled", true);
@@ -256,7 +262,7 @@ frappe.ui.form.ControlInput = frappe.ui.form.Control.extend({
 		var icon = "";
 		this.label_span.innerHTML = (icon ? '<i class="'+icon+'"></i> ' : "") +
 			__(this.df.label)  || "&nbsp;";
-		this._label = this.df.label;
+		this._label = __(this.df.label);
 	},
 	set_description: function() {
 		if(this.only_input || this.df.description===this._description)

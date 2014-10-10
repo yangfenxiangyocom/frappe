@@ -17,7 +17,7 @@ frappe.form.formatters = {
 		return value==null ? "" : value;
 	},
 	Select: function(value) {
-		return __(frappe.form.formatters["Data"](value));
+		return frappe.form.formatters["Data"](value);
 	},
 	Float: function(value, docfield, options, doc) {
 		// don't allow 0 precision for Floats, hence or'ing with null
@@ -104,7 +104,7 @@ frappe.form.formatters = {
 		$.each((value || "").split(","), function(i, v) {
 			if(v) html+= '<span class="label label-info" \
 				style="margin-right: 7px; cursor: pointer;"\
-				data-field="_user_tags" data-label="'+v+'">'+ __(v) +'</span>';
+				data-field="_user_tags" data-label="'+ v+'">'+ v +'</span>';
 		});
 		return html;
 	},
