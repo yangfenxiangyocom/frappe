@@ -218,7 +218,7 @@ frappe.ui.form.ControlInput = frappe.ui.form.Control.extend({
 
 	set_disp_area: function() {
 		this.disp_area && $(this.disp_area)
-			.html(frappe.format(this.value, this.df, {no_icon:true},
+			.html(frappe.format(__(this.value), this.df, {no_icon:true},
 					this.doc || (this.frm && this.frm.doc)));
 	},
 
@@ -1008,7 +1008,7 @@ frappe.ui.form.ControlDynamicLink = frappe.ui.form.ControlLink.extend({
 		var options = frappe.model.get_value(this.df.parent, this.docname, this.df.options);
 		if(!options) {
 			msgprint(__("Please set {0} first",
-				[frappe.meta.get_docfield(this.df.parent, this.df.options, this.docname).label]));
+				[__(frappe.meta.get_docfield(this.df.parent, this.df.options, this.docname).label)]));
 		}
 		return options;
 	},
