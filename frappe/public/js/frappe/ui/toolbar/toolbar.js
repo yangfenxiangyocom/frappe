@@ -117,7 +117,7 @@ frappe.ui.toolbar.Toolbar = Class.extend({
 				<li><a href="#" onclick="return frappe.ui.toolbar.show_about();">\
 					<i class="icon-fixed-width icon-info-sign"></i> '
 					+__('About')+'</a></li>\
-				<li><a href="https://www.erpboost.com" target="_blank" data-link="docs">\
+				<li><a href="http://www.erpboost.com" target="_blank" data-link="docs">\
 					<i class="icon-fixed-width icon-file"></i> '+__('Documentation')+'</a></li> \
 				<li><a href="mailto:support@erpboost.com" target="_blank">\
 						<i class="icon-fixed-width icon-warning-sign"></i> '+__('Report an Issue')+'</a></li> \
