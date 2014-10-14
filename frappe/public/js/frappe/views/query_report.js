@@ -285,7 +285,7 @@ frappe.views.QueryReport = Class.extend({
 		if(raise && mandatory_fields.length) {
 			this.wrapper.find(".waiting-area").empty().toggle(false);
 			this.wrapper.find(".no-report-area").html(__("Please set filters")).toggle(true);
-			throw "Filters required";
+			throw __("Filters required");
 		}
 		return filters;
 	},

@@ -92,6 +92,25 @@ def run(report_name, filters=()):
 	if cint(report.add_total_row) and result:
 		result = add_total_row(result, columns)
 
+	#hotfix for data in report
+	#find column first, if columns starts with:
+	# Status, Source
+	#then, the value need to be translated
+	column_index =[]
+	i = 0
+	for column_n in columns:
+		if isinstance(column_n,dict) == False:
+			if column_n.find('Status') == 0 :
+				column_index.append(i)
+			if column_n.find('Source') == 0 :
+				column_index.append(i)
+		i = i + 1
+
+	#translate value
+	for index in column_index:
+		for result_row in result:
+			result_row[index] = _(result_row[index])
+
 	return {
 		"result": result,
 		"columns": columns

@@ -537,7 +537,7 @@ $(document).ready(function() {
 	});
 
 	//prepare translation fix
-	messages = {'Message':"消息",'Edit Web Page':"编辑网页",	'Reset Password':"重设密码",'Switch To Desk':"切换到后台",'Logout':"登出",'Web Page':"网页",'Edit':"编辑",'Invalid Login':"无效登录"};
+	var messages = {'Message':"消息",'Edit Web Page':"编辑网页",	'Reset Password':"重设密码",'Switch To Desk':"切换到后台",'Logout':"登出",'Web Page':"网页",'Edit':"编辑",'Invalid Login':"无效登录"};
 	$.extend(frappe._messages, messages);
 
 	// switch to app link

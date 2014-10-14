@@ -3,6 +3,7 @@
 
 frappe.provide("frappe.report_dump");
 
+
 $.extend(frappe.report_dump, {
 	data: {},
 	last_modified: {},
@@ -756,6 +757,14 @@ frappe.views.GridReportWithPlot = frappe.views.GridReport.extend({
 		return {
 			grid: { hoverable: true, clickable: true },
 			xaxis: { mode: "time",
+				tickFormatter: function (val, axis) {
+					var get_month = function(num) {
+					return [__("January"), __("February"), __("March"), __("April"), __("May"), __("June"),
+						__("July"), __("August"), __("September"), __("October"), __("November"), __("December")][num-1];
+					}
+ 					var d = new Date(val);
+ 					return  get_month(d.getUTCMonth() + 1);
+				},
 				min: dateutil.str_to_obj(this.from_date).getTime(),
 				max: dateutil.str_to_obj(this.to_date).getTime() },
 			series: { downsample: { threshold: 1000 } }
