@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright (c) 2013, Web Notes Technologies Pvt. Ltd. and Contributors
 # For license information, please see license.txt
 
@@ -38,9 +39,10 @@ def load():
 
 	languages = get_lang_dict().keys()
 	languages.sort()
-
+	#hotfix, only open languages when needed
 	return {
 		"timezones": get_all_timezones(),
-		"languages": [""] + languages,
+		#"languages": [""] + languages,
+		"languages": ["english",u"中国（简体）"],
 		"defaults": defaults
 	}

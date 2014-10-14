@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright (c) 2013, Web Notes Technologies Pvt. Ltd. and Contributors
 # MIT License. See license.txt
 
@@ -272,8 +273,11 @@ def get_languages():
 	import pytz
 	languages = get_lang_dict().keys()
 	languages.sort()
+
+	#hotfix, only open languages when needed
 	return {
-		"languages": [""] + languages,
+		#"languages": [""] + languages,
+		"languages": ["english",u"中国（简体）"],
 		"timezones": pytz.all_timezones
 	}
 
