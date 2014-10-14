@@ -233,6 +233,7 @@ frappe.ui.toolbar.update_notifications = function() {
 		}
 	});
 
+	var hotfix = __("To Do");
 	$(".navbar-new-comments")
 		.html(total)
 		.toggleClass("navbar-new-comments-true", total ? true : false);

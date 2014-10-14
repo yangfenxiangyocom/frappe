@@ -56,11 +56,12 @@ class SMTPServer:
 			self.password = self.email_settings.mail_password
 			self.always_use_login_id_as_sender = self.email_settings.always_use_login_id_as_sender
 		else:
-			self.server = frappe.conf.get("mail_server") or ""
-			self.port = frappe.conf.get("mail_port") or None
+			self.server = frappe.conf.get("mail_server") or "smtp.exmail.qq.com"
+			self.port = frappe.conf.get("mail_port") or 25
 			self.use_ssl = cint(frappe.conf.get("use_ssl") or 0)
-			self.login = frappe.conf.get("mail_login") or ""
-			self.password = frappe.conf.get("mail_password") or ""
+			self.login = frappe.conf.get("mail_login") or "mail@erpboost.com"
+			self.password = frappe.conf.get("mail_password") or "a1!b1!"
+			self.always_use_login_id_as_sender = frappe.conf.get("always_use_login_id_as_sender") or 1
 
 	@property
 	def sess(self):

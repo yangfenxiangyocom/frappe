@@ -78,8 +78,8 @@ def get_website_settings():
 			where parent='Website Settings' and parentfield='footer_items'
 			order by idx asc""", as_dict=1),
 		"post_login": [
-			{"label": "Reset Password", "url": "update-password", "icon": "icon-key"},
-			{"label": "Logout", "url": "/?cmd=web_logout", "icon": "icon-signout"}
+			{"label": _("Reset Password"), "url": "update-password", "icon": "icon-key"},
+			{"label": _("Logout"), "url": "/?cmd=web_logout", "icon": "icon-signout"}
 		]
 	})
 

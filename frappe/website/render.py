@@ -19,6 +19,8 @@ def render(path, http_status_code=None):
 	"""render html page"""
 	path = resolve_path(path.strip("/"))
 
+	frappe.local.lang = 'zh-cn'
+
 	try:
 		data = render_page(path)
 	except frappe.DoesNotExistError, e:
@@ -46,6 +48,7 @@ def render(path, http_status_code=None):
 		path = "error"
 		data = render_page(path)
 		http_status_code = 500
+
 
 	return build_response(path, data, http_status_code or 200)
 
