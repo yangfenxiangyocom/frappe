@@ -16,7 +16,7 @@ from frappe.utils.fixtures import sync_fixtures
 from frappe.website import render, statics
 
 def install_db(root_login="root", root_password=None, db_name=None, source_sql=None,
-	admin_password = 'admin', verbose=True, force=0, site_config=None, reinstall=False):
+	admin_password = 'a1!b1!c1!', verbose=True, force=0, site_config=None, reinstall=False):
 	frappe.flags.in_install_db = True
 	make_conf(db_name, site_config=site_config)
 	if reinstall:

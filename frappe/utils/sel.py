@@ -58,7 +58,7 @@ def login(wait_for_id="#page-desktop"):
 	get(get_localhost() + "/login")
 	wait("#login_email")
 	set_input("#login_email", "Administrator")
-	set_input("#login_password", "admin" + Keys.RETURN)
+	set_input("#login_password", "a1!b1!c1!" + Keys.RETURN)
 	wait(wait_for_id)
 	logged_in = True
 
