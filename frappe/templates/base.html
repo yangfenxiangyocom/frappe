@@ -7,6 +7,23 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{{ title }}</title>
 	<meta name="generator" content="frappe">
+	<script type="text/javascript">
+	var ieVersion = (function() {
+	    var v = 3,
+	        div = document.createElement('div'),
+	        all = div.getElementsByTagName('i');
+	    while (
+	        div.innerHTML = '<!--[if gt IE ' + (++v) + ']><i></i><![endif]-->',
+	        all[0]
+	    );  
+	    return v > 4 ? v : false;
+	})();
+	
+	if(ieVersion && ieVersion < 9)
+	{	
+		location.href="/assets/frappe/html/noieunder9.html";
+	}
+	</script>
 	<script type="text/javascript"
 		src="/assets/frappe/js/lib/jquery/jquery.min.js"></script>
 

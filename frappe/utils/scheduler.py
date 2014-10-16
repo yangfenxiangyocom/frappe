@@ -14,6 +14,7 @@ import frappe
 import frappe.utils
 from frappe.utils.file_lock import create_lock, check_lock, delete_lock
 from datetime import datetime
+from frappe import _
 
 DATETIME_FORMAT = '%Y-%m-%d %H:%M:%S'
 
@@ -135,8 +136,7 @@ def get_error_report(from_date=None, to_date=None, limit=10):
 	errors = get_errors(from_date, to_date, limit)
 
 	if errors:
-		return 1, """<h4>Scheduler Failed Events (max {limit}):</h4>
-			<p>URL: <a href="{url}" target="_blank">{url}</a></p><hr>{errors}""".format(
+		return 1, _("""<h4>Scheduler Failed Events (max {limit}):</h4>	<p>URL: <a href="{url}" target="_blank">{url}</a></p><hr>{errors}""").format(
 			limit=limit, url=get_url(), errors="<hr>".join(errors))
 	else:
-		return 0, "<p>Scheduler didn't encounter any problems.</p>"
+		return 0, _("<p>Scheduler didn't encounter any problems.</p>")
