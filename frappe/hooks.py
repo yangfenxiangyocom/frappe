@@ -4,7 +4,7 @@ app_title = "ERP Boost 框架"
 app_publisher = "ERP Boost Your Business"
 app_description = "企业Web应用程序框架"
 app_icon = "assets/frappe/images/frappe.svg"
-app_version = "4.4.4"
+app_version = "4.4.5"
 app_color = "#3498db"
 app_email = "support@frappe.io"
 

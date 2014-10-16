@@ -99,7 +99,7 @@ def run(report_name, filters=()):
 	column_index =[]
 	i = 0
 	for column_n in columns:
-		if isinstance(column_n,dict) == False:
+		if isinstance(column_n,dict) == False or isinstance(column_n,tuple) == False :
 			if column_n.find('Status') == 0  or column_n.find(_("Status")) or column_n.find("status"):
 				column_index.append(i)
 			if column_n.find('Source') == 0  or column_n.find(_("Source")) or column_n.find("source"):
@@ -111,7 +111,8 @@ def run(report_name, filters=()):
 	#translate value
 	for index in column_index:
 		for result_row in result:
-			result_row[index] = _(result_row[index])
+			if isinstance(result_row,tuple) == False :
+				result_row[index] = _(result_row[index])
 
 	return {
 		"result": result,
