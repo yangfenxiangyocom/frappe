@@ -512,7 +512,11 @@ def get_url(uri=None, full_address=False):
 	if not host_name:
 		if hasattr(frappe.local, "request") and frappe.local.request and frappe.local.request.host:
 			protocol = 'https' == frappe.get_request_header('X-Forwarded-Proto', "") and 'https://' or 'http://'
-			host_name = protocol + frappe.local.request.host
+			domain_main = frappe.local.conf.get('domain_main')
+    			if domain_main:
+        				host_name = protocol + frappe.local.request.host +'.'+ domain_main
+    			else:
+        				host_name = protocol + frappe.local.request.host
 		elif frappe.local.site:
 			host_name = "http://{}".format(frappe.local.site)
 		else:
