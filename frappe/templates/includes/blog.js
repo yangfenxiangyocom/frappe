@@ -23,16 +23,20 @@ var blog = {
 		});
 	},
 	render: function(data) {
+		//prepare translation fix
+		messages_trans = {'No comments yet.':"无评论",'1 comment.':"1条评论",	' comments':"条评论",'Nothing more to show':"没有记录",'No blogs written yet':"还未写博客"};
+		$.extend(frappe._messages, messages_trans);
+
 		if(!data) data = [];
 		var $wrap = $("#blog-list");
 		$.each(data, function(i, b) {
 			// comments
 			if(!b.comments) {
-				b.comment_text = 'No comments yet.'
+				b.comment_text = __('No comments yet.');
 			} else if (b.comments===1) {
-				b.comment_text = '1 comment.'
+				b.comment_text = __('1 comment.');
 			} else {
-				b.comment_text = b.comments + ' comments.'
+				b.comment_text = b.comments + __(' comments.');
 			}
 
 			b.page_name = $.map(b.page_name.split("/"), function(p)
