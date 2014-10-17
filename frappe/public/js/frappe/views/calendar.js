@@ -92,6 +92,20 @@ frappe.views.Calendar = Class.extend({
 				center: 'title',
 				right: 'month,agendaWeek,agendaDay'
 			},
+			monthNames: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],  
+			monthNamesShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],  
+			dayNames: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],  
+			dayNamesShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],  
+			today: ["今天"],  
+			firstDay: 1,  
+			buttonText: {  
+				today: '本月',  
+				month: '月',  
+				week: '周',  
+				day: '日',  
+				 prev: '上一月',  
+				 next: '下一月'  
+			},  
 			editable: true,
 			selectable: true,
 			selectHelper: true,
