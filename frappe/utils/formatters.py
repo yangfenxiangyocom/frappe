@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 import frappe
 from frappe.utils import formatdate, fmt_money, flt, cstr, cint
 from frappe.model.meta import get_field_currency, get_field_precision
+from frappe import _
 import re
 
 def format_value(value, df, doc=None, currency=None):
@@ -36,6 +37,9 @@ def format_value(value, df, doc=None, currency=None):
 	if df.get("fieldtype") in ("Text", "Small Text"):
 		if not re.search("(\<br|\<div|\<p)", value):
 			return value.replace("\n", "<br>")
+
+	if df.get("fieldtype") == "Select":
+		value = _(value);
 
 	return value
 
