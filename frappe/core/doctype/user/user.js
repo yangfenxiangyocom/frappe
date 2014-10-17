@@ -1,6 +1,4 @@
 cur_frm.cscript.onload = function(doc, dt, dn) {
-	$(".titlebar-center-item").append("<h6 class='alert alert-info'>为方便客户使用，现在用户创建功能对外开放。<br/>当您创建的用户数超出套餐限制后，系统会自动发邮件提醒您缴费</h6>");
-	
 	if(has_common(user_roles, ["Administrator", "System Manager"])) {
 		if(!cur_frm.roles_editor) {
 			var role_area = $('<div style="min-height: 300px">')
