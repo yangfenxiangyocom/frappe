@@ -70,10 +70,10 @@ var blog = {
 		if(!data.length || data.length < 20) {
 			if(blog.start) {
 				$("#next-page").toggle(false)
-					.parent().append("<div class='text-muted'>Nothing more to show.</div>");
+					.parent().append("<div class='text-muted'>" + __("Nothing more to show") + ".</div>");
 			} else {
 				$("#next-page").toggle(false)
-					.parent().append("<div class='alert alert-warning'>No blogs written yet.</div>");
+					.parent().append("<div class='alert alert-warning'>" + __("No blogs written yet") + ".</div>");
 			}
 		} else {
 			$("#next-page").toggle(true);
