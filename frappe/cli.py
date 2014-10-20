@@ -299,7 +299,6 @@ def _install(db_name, root_login="root", root_password=None, source_sql=None,
 
 	from frappe.installer import install_db, install_app, make_site_dirs
 	import frappe.utils.scheduler
-
 	verbose = not quiet
 
 	# enable scheduler post install?
@@ -324,11 +323,7 @@ def _install(db_name, root_login="root", root_password=None, source_sql=None,
 
 @cmd
 def install(db_name, root_login="root", root_password=None, source_sql=None,
-<<<<<<< HEAD
 		admin_password = 'a1!b1!c1!', force=False, site_config=None, reinstall=False, quiet=False, install_apps=None):
-=======
-		admin_password=None, force=False, site_config=None, reinstall=False, quiet=False, install_apps=None):
->>>>>>> original/master
 	_install(db_name, root_login, root_password, source_sql, admin_password, force, site_config, reinstall, quiet, install_apps)
 	frappe.destroy()
 
