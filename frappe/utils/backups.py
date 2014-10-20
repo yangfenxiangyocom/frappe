@@ -101,15 +101,14 @@ class BackupGenerator:
 		db_backup_url = get_url(os.path.join('backups', os.path.basename(self.backup_path_db)))
 		files_backup_url = get_url(os.path.join('backups', os.path.basename(self.backup_path_files)))
 
-		msg = """Hello,
+		msg = (_("Hello") + """,
 
-Your backups are ready to be downloaded.
+""" + _("Your backups are ready to be downloaded") + """.
 
-1. [Click here to download the database backup](%(db_backup_url)s)
-2. [Click here to download the files backup](%(files_backup_url)s)
+1. [""" + _("Click here to download the database backup") + """](%(db_backup_url)s)
+2. [""" + _("Click here to download the files backup") + """](%(files_backup_url)s)
 
-This link will be valid for 24 hours. A new backup will be available for
-download only after 24 hours.""" % {
+""" + _("This link will be valid for 24 hours. A new backup will be available for download only after 24 hours") + """.""") % {
 			"db_backup_url": db_backup_url,
 			"files_backup_url": files_backup_url
 		}

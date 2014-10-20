@@ -7,14 +7,14 @@ import frappe, json, os
 from frappe import _
 import frappe.modules.import_file
 
-
+@frappe.whitelist()
 def get_data_keys():
     return frappe._dict({
         "data_separator": _('Start entering data below this line'),
-        "main_table": _("Table:"),
-        "parent_table": _("Parent Table:"),
-        "columns": _("Column Name:"),
-        "doctype": _("DocType:")
+        "main_table": _("Table") + ":",
+        "parent_table": _("Parent Table") + ":",
+        "columns": _("Column Name") + ":",
+        "doctype": _("DocType") + ":"
     })
 
 @frappe.whitelist()
