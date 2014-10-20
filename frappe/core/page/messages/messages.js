@@ -72,7 +72,7 @@ frappe.core.pages.messages = Class.extend({
 	show: function() {
 		var contact = this.get_contact() || this.contact || user;
 
-		$('#message-title').html(contact===user ? "Everyone" :
+		$('#message-title').html(contact===user ? __("Everyone") :
 			frappe.user_info(contact).fullname)
 
 		$('#avatar-image').attr("src", frappe.utils.get_file_link(frappe.user_info(contact).image));
