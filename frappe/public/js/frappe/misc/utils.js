@@ -8,7 +8,11 @@ frappe.utils = {
 		filename = cstr(filename);
 		if(frappe.utils.is_url(filename)) {
 			return filename;
-		} else if(filename.indexOf("/")===-1) {
+		} 
+		else if(filename.length == 0){
+			return "#";
+		}
+		else if(filename.indexOf("/")===-1) {
 			return "files/" + filename;
 		} else {
 			return filename;

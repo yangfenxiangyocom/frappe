@@ -1,5 +1,6 @@
 // Copyright (c) 2013, Web Notes Technologies Pvt. Ltd. and Contributors
 // MIT License. See license.txt
+//hotfox; __("High");__("Medium");__("Low");__("Standard");
 
 frappe.views.get_listview = function(doctype, parent) {
 	if(frappe.doclistviews[doctype]) {
@@ -309,11 +310,11 @@ frappe.views.ListView = Class.extend({
 		}
 
 		// avatar
-		var user_for_avatar = data.user_for_avatar || data.modified_by;
-		html += frappe.avatar(user_for_avatar, false, __("Modified by")+": "
-			+ frappe.user_info(user_for_avatar).fullname)
+		//var user_for_avatar = data.user_for_avatar || data.modified_by;
+		//html += frappe.avatar(user_for_avatar, false, __("Modified by")+": "
+		//	+ frappe.user_info(user_for_avatar).fullname)
 
-		this.title_offset_left += 30 + 5;
+		//this.title_offset_left += 30 + 5;
 
 		// docstatus lock
 		if(frappe.model.is_submittable(this.doctype)) {
