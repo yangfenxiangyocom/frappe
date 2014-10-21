@@ -10,6 +10,10 @@ frappe.request.url = '/';
 frappe.call = function(opts) {
 	var args = $.extend({}, opts.args);
 
+	//prepare translation fix
+	messages_trans = {'Session Expired. Logging you out':"会话过期退出登录",'Not permitted':"未授权",'Not found':"未找到","Server Error: Please check your server logs or contact tech support.":"服务器错误：请检查您的服务器日志或联系技术支持"};
+	$.extend(frappe._messages, messages_trans);
+
 	// cmd
 	if(opts.module && opts.page) {
 		args.cmd = opts.module+'.page.'+opts.page+'.'+opts.page+'.'+opts.method;
