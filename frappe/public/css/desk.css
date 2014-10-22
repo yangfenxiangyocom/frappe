@@ -198,6 +198,7 @@ div#freeze {
 .list-doc-name {
 	position: absolute;
 	bottom: 2px;
+	top: 30px;
 }
 
 .list-doc-name a {
