@@ -1699,7 +1699,7 @@ Removed {0},{0}已移除
 Last Comment,最新评论
 Enable Report,启用报表
 Disable Report,禁用报表
-"A new task, %s, has been assigned to you by %s. %s",新的任务%s已经被分配你%s. %s
+"A new task, %s, has been assigned to you by %s. %s",新的任务: %s已经被分配给你%s. %s
 "The task %s, that you assigned to %s, has been closed	by %s.",任务%s: 分配给%s的已经被%s关闭了
 "The task %s, that you assigned to %s, has been closed.",任务%s: 分配给%s的已经被关闭了
 Paragraph,段落
