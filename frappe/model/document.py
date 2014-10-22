@@ -16,6 +16,8 @@ from werkzeug.exceptions import NotFound, Forbidden
 def get_doc(arg1, arg2=None):
 	if isinstance(arg1, BaseDocument):
 		return arg1
+	elif arg1 is None:
+		return arg1
 	elif isinstance(arg1, basestring):
 		doctype = arg1
 	else:

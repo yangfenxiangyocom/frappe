@@ -11,7 +11,16 @@ frappe.call = function(opts) {
 	var args = $.extend({}, opts.args);
 
 	//prepare translation fix
-	messages_trans = {'Session Expired. Logging you out':"会话过期退出登录",'Not permitted':"未授权",'Not found':"未找到","Server Error: Please check your server logs or contact tech support.":"服务器错误：请检查您的服务器日志或联系技术支持"};
+	messages_trans = {'Session Expired. Logging you out':"会话过期退出登录",
+					'Not permitted':"未授权",
+					'Not found':"未找到",
+					"Server Error: Please check your server logs or contact tech support.":"服务器错误：请检查您的服务器日志或联系技术支持",
+					"Error Report":"错误报告",
+					"Request Data":"请求参数",
+					"Response JSON":"响应数据",
+					"There has error happens, Sorry for the trouble caused, Plesae click report error to send to our side":"很抱歉，发生了个小错误，请报告此问题，我们将尽快解决，谢谢您。",
+					"Route":"访问路由"
+					};
 	$.extend(frappe._messages, messages_trans);
 
 	// cmd
@@ -259,7 +268,7 @@ frappe.request.report_error = function(xhr, request_opts) {
 	if (exc) {
 		var error_report_email = (frappe.boot.error_report_email || []).join(", ");
 		var error_message = '<div>\
-			<pre style="max-height: 300px; margin-top: 7px;">' + exc + '</pre>'
+			<pre style="max-height: 300px; margin-top: 7px;">' + __("There has error happens, Sorry for the trouble caused, Plesae click report error to send to our side") + '</pre>'
 			+'<p class="text-right"><a class="btn btn-default report-btn">\
 				<i class="icon-fixed-width icon-envelope"></i> '
 			+ __("Report this issue") + '</a></p>'
@@ -277,21 +286,21 @@ frappe.request.report_error = function(xhr, request_opts) {
 					'<div style="min-height: 100px; border: 1px solid #bbb; \
 						border-radius: 5px; padding: 15px; margin-bottom: 15px;"></div>',
 					'<hr>',
-					'<h5>Route</h5>',
+					'<h5>' + __("Route") + '</h5>',
 					'<pre>' + frappe.get_route_str() + '</pre>',
 					'<hr>',
-					'<h5>Error Report</h5>',
+					'<h5>' + __("Error Report") + '</h5>',
 					'<pre>' + exc + '</pre>',
 					'<hr>',
-					'<h5>Request Data</h5>',
+					'<h5>' + __("Request Data") + '</h5>',
 					'<pre>' + JSON.stringify(request_opts, null, "\t") + '</pre>',
 					'<hr>',
-					'<h5>Response JSON</h5>',
+					'<h5>' + __("Response JSON") + '</h5>',
 					'<pre>' + JSON.stringify(data, null, '\t')+ '</pre>'
 				].join("\n");
 
 				var communication_composer = new frappe.views.CommunicationComposer({
-					subject: 'Error Report',
+					subject: __('Error Report'),
 					recipients: error_report_email,
 					message: error_report_message,
 					doc: {

@@ -26,6 +26,8 @@ class Communication(Document):
 	def update_parent(self):
 		"""update status of parent Lead or Contact based on who is replying"""
 		parent_doc = self.get_parent_doc()
+		if parent_doc is None:
+			return
 		parent_doc.run_method("on_communication")
 
 	def on_update(self):
