@@ -58,7 +58,7 @@ frappe.ui.toolbar.Bookmarks = Class.extend({
 			var icon = "icon-play";
 		}
 		var html = repl('<li><a href="#%(route)s"><i class="icon-fixed-width %(icon)s"></i> %(title)s</a></li>', 
-			{route: route, title: title, icon: icon});
+			{route: route, title: __(title), icon: icon});
 		$('#toolbar-bookmarks').prepend(html);
 		
 	},
