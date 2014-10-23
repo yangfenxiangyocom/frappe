@@ -641,7 +641,9 @@ class cnumber:
         cdata=str(data).split('.')
         
         cki=cdata[0]
-        ckj=cdata[1]
+        ckj = '0'
+        if len(cdata) > 1:
+        		ckj=cdata[1]
         i=0
         chk=u''
         cski=self.csplit(cki) #分解字符数组[亿，万，仟]三组List:['0000','0000','0000']
