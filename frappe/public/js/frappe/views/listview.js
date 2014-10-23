@@ -343,9 +343,10 @@ frappe.views.ListView = Class.extend({
 
 		if(!without_workflow && this.workflow_state_fieldname) {
 			html+= repl('<span class="label label-%(style)s filterable" data-filter="%(fieldname)s,=,%(value)s">\
-				%(value)s</span>', {
+				%(value_display)s</span>', {
 					fieldname: this.workflow_state_fieldname,
 					value: data[this.workflow_state_fieldname],
+					value_display: __(data[this.workflow_state_fieldname]),
 					style: frappe.utils.guess_style(data[this.workflow_state_fieldname])
 				});
 		}

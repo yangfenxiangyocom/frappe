@@ -94,7 +94,7 @@ frappe.views.ReportView = frappe.ui.Listing.extend({
 		var me = this;
 		this.make({
 			appframe: this.page.appframe,
-			method: 'frappe.widgets.reportview.get',
+			method: 'frappe.widgets.reportview.get_with_tran',
 			get_args: this.get_args,
 			parent: $(this.page).find('.layout-main'),
 			start: 0,

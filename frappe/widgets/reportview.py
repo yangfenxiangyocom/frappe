@@ -13,6 +13,10 @@ from frappe import _
 def get():
 	return compress(execute(**get_form_params()))
 
+@frappe.whitelist()
+def get_with_tran():
+	return compress_withtran(execute(**get_form_params()))
+
 def execute(doctype, query=None, filters=None, fields=None, or_filters=None, docstatus=None,
 		group_by=None, order_by=None, limit_start=0, limit_page_length=20,
 		as_list=False, with_childnames=False, debug=False):
@@ -34,6 +38,22 @@ def get_form_params():
 	return data
 
 def compress(data):
+	"""separate keys and values"""
+	if not data: return data
+	values = []
+	keys = data[0].keys()
+	for row in data:
+		new_row = []
+		for key in keys:
+			new_row.append(row[key])
+		values.append(new_row)
+
+	return {
+		"keys": keys,
+		"values": values
+	}
+
+def compress_withtran(data):
 	"""separate keys and values"""
 	if not data: return data
 	values = []
