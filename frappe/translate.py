@@ -115,7 +115,7 @@ def get_dict(fortype, name=None):
 			messages += frappe.db.sql_list("select name from tabRole")
 			messages += frappe.db.sql_list("select name from `tabModule Def`")
 			messages += frappe.db.sql_list("select name from `tabReport`")
-			messages += ['Low','Medium','High','Standard','Overdue','Pending','Session Expired. Logging you out'];
+			messages += ['Low','Medium','High','Standard','Overdue','Pending','Session Expired. Logging you out','Stock Item','Sales Item','Purchase Item','Manufactured Item','Shown in Website'];
 
 		translation_assets[asset_key] = make_dict_from_messages(messages)
 		cache.set_value(cache_key, translation_assets)
