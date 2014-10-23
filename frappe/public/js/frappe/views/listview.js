@@ -291,7 +291,7 @@ frappe.views.ListView = Class.extend({
 			.css({
 				"white-space": "nowrap",
 				"text-overflow": "ellipsis",
-				"height": "30px",
+				"height": "36px",
 				"padding-top":"3px"
 			})
 		return col;
@@ -408,7 +408,7 @@ frappe.views.ListView = Class.extend({
 			if(style) label_class = "label-" + style;
 
 			$("<span>"
-				+ data[opts.content] + "</span>")
+				+ __(data[opts.content]) + "</span>")
 				.css({"cursor":"pointer"})
 				.addClass("label")
 				.addClass("filterable")
