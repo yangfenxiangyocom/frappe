@@ -28,7 +28,7 @@ frappe.gravatars = {};
 frappe.get_gravatar = function(email_id) {
 	frappe.require("/assets/frappe/js/lib/md5.min.js");
 	if(!frappe.gravatars[email_id]) {
-		frappe.gravatars[email_id] = "https://secure.gravatar.com/avatar/" + md5(email_id) + "?d=retro";
+		frappe.gravatars[email_id] = "https://secure.gravatar.com/avatar/" + md5(email_id) + "?d=mm";
 	}
 	return frappe.gravatars[email_id];
 }
