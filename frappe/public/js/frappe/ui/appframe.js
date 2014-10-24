@@ -221,9 +221,9 @@ frappe.ui.AppFrame = Class.extend({
 		},
 
 	add_help_button: function(txt) {
-		this.add_icon_btn("2", "icon-question-sign", __("Help"),
-			function() { msgprint($(this).data('help-text'), 'Help'); })
-			.data("help-text", txt);
+//		this.add_icon_btn("2", "icon-question-sign", __("Help"),
+//			function() { msgprint($(this).data('help-text'), 'Help'); })
+//			.data("help-text", txt);
 	},
 
 	add_icon_btn: function(group, icon, label, click) {
