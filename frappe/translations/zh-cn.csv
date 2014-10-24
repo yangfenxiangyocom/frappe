@@ -516,7 +516,7 @@ In Filter,在过滤器中
 In List View,在列表视图中
 In Report Filter,在报表筛选中
 In points. Default is 9.,以点为单位;默认值是9
-In response to,响应
+In response to,回复
 Incorrect value in row {0}: {1} must be {2} {3},不正确的值在第{0}行: {1}必须是{2} {3}
 Incorrect value: {0} must be {1} {2},不正确的值：{0}必须是{1} {2}
 Index,索引
@@ -569,7 +569,7 @@ Language preference for user interface (only if available).,用户界面的语�
 Last IP,最后一个IP
 Last Login,上次登录
 Last Name,名
-Last updated by,最后更新人
+Last Updated By,最后更新人
 Lastmod,上一个更改人
 Lato,Lato
 Leave blank to repeat always,留空来设置总是重复
@@ -816,7 +816,7 @@ Please enter title!,请输入标题!
 Please login to Upvote!,请登录后进行投票
 Please make sure that there are no empty columns in the file.,请确保文件中没有空列。
 Please refresh to get the latest document.,请刷新以获得最新的文档。
-Please reply above this line or remove it if you are replying below it,请这条线以上进行回复，如果你它下面回复则请删除它
+Please reply above this line or remove it if you are replying below it,"请这条线以上进行回复，如果你在下面回复，请删除这条线"
 Please select a file or url,请选择一个文件或URL
 Please select atleast 1 column from {0} to sort,请从{0}至少选择一列进行排序
 Please set {0} first,请先设置{0}
@@ -1791,3 +1791,7 @@ Cache Cleared,缓存已清除
 Overdue,已超期
 Edit Filter,编辑
 Overdue:,超期:
+Refresh Form,刷新表单
+Reset to defaults,重设至默认
+Upcoming Calendar Events (max 10),到期日历事件(最多10个)
+Calendar Events,日历事件
