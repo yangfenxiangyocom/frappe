@@ -378,7 +378,7 @@ $.extend(frappe.model, {
 		var d = new frappe.ui.Dialog({
 			title: __("Rename {0}", [__(docname)]),
 			fields: [
-				{label:__("New Name"), fieldtype:"Data", reqd:1},
+				{label:__("New Name"), fieldname:"new_name",fieldtype:"Data", reqd:1},
 				{label:__("Merge with existing"), fieldtype:"Check", fieldname:"merge"},
 				{label:__("Rename"), fieldtype: "Button",fieldname:"rename"}
 			]
@@ -405,6 +405,7 @@ $.extend(frappe.model, {
 						d.hide();
 						if(callback)
 							callback(r.message);
+						window.location.reload(true);
 					}
 				}
 			});

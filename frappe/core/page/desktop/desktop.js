@@ -30,7 +30,7 @@ frappe.desktop.refresh = function() {
 frappe.desktop.render = function() {
 	$("#icon-grid").empty();
 
-	document.title = "Desktop";
+	document.title = __("Desktop");
 	var add_icon = function(m) {
 		var module = frappe.get_module(m);
 
