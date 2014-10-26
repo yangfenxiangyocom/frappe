@@ -352,15 +352,15 @@ frappe.views.QueryReport = Class.extend({
 				if (!cint(df.width)) df.width = 80;
 
 				var col = $.extend({}, df, {
-					label: df.label || (df.fieldname && __(toTitle(df.fieldname.replace(/_/g, " ")))) || "",
+					label: df.label || (df.fieldname && toTitle(df.fieldname.replace(/_/g, " "))) || "",
 					sortable: true,
 					df: df,
 					formatter: formatter
 				});
 
 				col.field = df.fieldname || df.label;
-				df.label = __(df.label);
 				col.name = col.id = col.label = df.label;
+				col.name = __(col.name);
 
 				return col
 		}));
@@ -369,12 +369,20 @@ frappe.views.QueryReport = Class.extend({
 		return frappe.query_reports[this.report_name] || {};
 	},
 	get_formatter: function() {
-		var formatter = function(row, cell, value, columnDef, dataContext) {
+		var formatter = function(row, cell, value, columnDef, dataContext) { 
 			var value = frappe.format(value, columnDef.df, null, dataContext);
-
 			if (columnDef.df.is_tree) {
 				value = frappe.query_report.tree_formatter(row, cell, value, columnDef, dataContext);
 			}
+
+			if(columnDef.df.label == __("Voucher Type")
+				|| columnDef.df.label ==  "Voucher Type")
+			{
+				value = __(value);
+			}
+
+			if(value == "Invalid date")
+				value = '';
 
 			return value;
 		};
