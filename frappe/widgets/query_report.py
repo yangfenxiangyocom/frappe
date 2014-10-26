@@ -100,12 +100,13 @@ def run(report_name, filters=()):
 	i = 0
 	for column_n in columns:
 		if isinstance(column_n,dict) == False and isinstance(column_n,tuple) == False :
-			if column_n.find('Status') == 0  or column_n.find(_("Status")) or column_n.find("status"):
+			if column_n.find('Status') == 0  or column_n.find(_("Status")) == 0 or column_n.find("status") == 0 :
 				column_index.append(i)
-			if column_n.find('Source') == 0  or column_n.find(_("Source")) or column_n.find("source"):
+			if column_n.find('Source') == 0  or column_n.find(_("Source")) == 0 or column_n.find("source")== 0 :
 				column_index.append(i)
-			if column_n.find('Gender') == 0  or column_n.find(_("Gender")) or column_n.find("gender"):
+			if column_n.find('Gender') == 0  or column_n.find(_("Gender"))== 0  or column_n.find("gender")== 0 :
 				column_index.append(i)
+			
 		i = i + 1
 
 	#translate value
