@@ -405,8 +405,8 @@ $.extend(frappe.model, {
 						d.hide();
 						if(callback)
 							callback(r.message);
-
-						$(".titlebar-item.text-right").children(".btn.btn-primary").trigger("click");
+						if($(".titlebar-item.text-right").attr("data-text")== __("Refresh"))
+							$(".titlebar-item.text-right").children(".btn.btn-primary").trigger("click");
 					}
 				}
 			});
