@@ -6,7 +6,7 @@ app_description = "企业Web应用程序框架"
 app_icon = "assets/frappe/images/frappe.svg"
 app_version = "4.4.6"
 app_color = "#3498db"
-app_email = "support@frappe.io"
+app_email = "support@erpboost.com"
 
 before_install = "frappe.utils.install.before_install"
 after_install = "frappe.utils.install.after_install"

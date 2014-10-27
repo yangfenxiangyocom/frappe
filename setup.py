@@ -11,7 +11,7 @@ setup(
     version=version,
     description='Metadata driven, full-stack web framework',
     author='Web Notes Technologies',
-    author_email='info@frappe.io',
+    author_email='support@erpboost.com',
     packages=find_packages(),
     zip_safe=False,
     include_package_data=True,
