@@ -40,7 +40,7 @@ frappe.ui.form.save = function(frm, action, callback, btn) {
 		var meta = locals.DocType[doc.doctype];
 		if(doc.__islocal && (meta && meta.autoname
 				&& meta.autoname.toLowerCase()=='prompt')) {
-			var newname = prompt('Enter the name of the new '+ doc.doctype, '');
+			var newname = prompt(__('Enter the name of the new ')+ __(doc.doctype), '');
 			if(newname) {
 				doc.__newname = strip(newname);
 			} else {
