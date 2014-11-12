@@ -253,6 +253,11 @@ frappe.RoleEditor = Class.extend({
 								perm[key] = '';
 							}
 						}
+
+						if(key == 'parent')
+						{
+							perm[key] = __(perm[key]);
+						}
 					}
 
 					$body.find('tbody').append(repl('<tr>\
