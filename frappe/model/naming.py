@@ -155,7 +155,7 @@ def validate_name(doctype, name, case=None, merge=False):
 	name = name.strip()
 
 	if not frappe.get_meta(doctype).get("issingle") and doctype == name:
-		frappe.throw(_("Name of {0} cannot be {1}").format(doctype, name), frappe.NameError)
+		frappe.throw(_("Name of {0} cannot be {1}").format(_(doctype), name), frappe.NameError)
 
 	return name
 
