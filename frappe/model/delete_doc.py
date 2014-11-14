@@ -130,8 +130,8 @@ def check_if_doc_is_linked(doc, method="Delete"):
 
 			if item and item.parent != doc.name and ((method=="Delete" and item.docstatus<2) or
 					(method=="Cancel" and item.docstatus==1)):
-				frappe.throw(_("Cannot delete or cancel because {0} {1} is linked with {2} {3}").format(doc.doctype,
-					doc.name, item.parent or item.name, item.parenttype if item.parent else link_dt),
+				frappe.throw(_("Cannot delete or cancel because {0} {1} is linked with {2} {3}").format(_(doc.doctype),
+					doc.name, _(item.parent) or item.name, item.parenttype if item.parent else _(link_dt)),
 					frappe.LinkExistsError)
 
 def check_if_doc_is_dynamically_linked(doc):
@@ -142,15 +142,15 @@ def check_if_doc_is_dynamically_linked(doc):
 				# dynamic link in single doc
 				refdoc = frappe.db.get_singles_dict(df.parent)
 				if refdoc.get(df.options)==doc.doctype and refdoc.get(df.fieldname)==doc.name:
-					frappe.throw(_("Cannot delete or cancel because {0} {1} is linked with {2} {3}").format(doc.doctype,
-						doc.name, df.parent, ""), frappe.LinkExistsError)
+					frappe.throw(_("Cannot delete or cancel because {0} {1} is linked with {2} {3}").format(_(doc.doctype),
+						doc.name, _(df.parent), ""), frappe.LinkExistsError)
 			else:
 
 				# dynamic link in table
 				for name in frappe.db.sql_list("""select name from `tab{parent}` where
 					{options}=%s and {fieldname}=%s""".format(**df), (doc.doctype, doc.name)):
-					frappe.throw(_("Cannot delete or cancel because {0} {1} is linked with {2} {3}").format(doc.doctype,
-						doc.name, df.parent, name), frappe.LinkExistsError)
+					frappe.throw(_("Cannot delete or cancel because {0} {1} is linked with {2} {3}").format(_(doc.doctype),
+						doc.name, _(df.parent), name), frappe.LinkExistsError)
 
 def delete_linked_todos(doc):
 	delete_doc("ToDo", frappe.db.sql_list("""select name from `tabToDo`
