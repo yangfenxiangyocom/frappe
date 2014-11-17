@@ -1838,3 +1838,6 @@ phone,电话
 Search results for: ,搜索产品
 Search Results,搜索结果
 Product Search,产品搜索
+You are using un-limited user version.,您使用的是不限后台登陆用户的版本
+"You are using %s user version, now left %s, if need upgrade, please visit erp boost website",您正在使用的是%s用户版本. 现在剩余%s个;如需升级请访问博实官网
+"You are using %s user version, now has %s overflow, if need upgrade, please visit erp boost website",您正在使用的是%s用户版本. 现在已超用%s个;如需升级请访问博实官网

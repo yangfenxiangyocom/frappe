@@ -88,6 +88,58 @@ frappe.views.DocListView = frappe.ui.Listing.extend({
 		this.init_filters();
 		this.$page.find(".show_filters").css({"padding":"15px", "margin":"0px -15px"});
 		this.$w.on("render-complete", function() {
+
+			//check user limit
+			if(me.doctype == 'User')
+			{
+				var txt =  $(".titlebar-item > .btn-primary").html();
+				if(txt && txt.indexOf(__("New") >=0 ))
+				{
+					$(".titlebar-item > .btn-primary").hide();
+
+					frappe.call({
+						method: 'frappe.core.doctype.user.user.get_user_limit',
+						callback: function(r) {
+							if(r.message)
+							{
+								var message_note = r.message.message_note;
+								var user_limit = r.message.user_limit;
+								var system_user_count = r.message.system_user_count;
+
+								//check if show create button
+								if(user_limit == 0 || user_limit > system_user_count){
+									
+									$(".titlebar-item > .btn-primary").show();
+
+								}
+
+
+								//show message
+								message_note = '<hr class="user-check-message tall"><p class="text-left alert alert-success">' + message_note + '</p></hr>';
+								
+								$(".titlebar-item").each(function(i,ele)
+								{
+									if(0 == $(this).find('.user-check-message').length)
+									{
+										
+										var icons =  $(this).find('.icon-user').length;
+
+										if(icons == 1 )
+										{
+											$(this).find('.user-check-message').remove();
+											var title_text =$($(this).find(".title-text")[0]).text();
+											if(title_text == "User List" || title_text == "用户列表")
+												$(this).append(message_note);
+										}
+									}
+
+								})
+							}
+						}
+					});
+				}
+			}
+
 			// if only one record, open the form, if not coming from the form itself
 			//if(me.data.length===1
 			//	&& frappe.get_prev_route()[2]!== me.data[0].name) {

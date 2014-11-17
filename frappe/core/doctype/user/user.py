@@ -282,6 +282,21 @@ def get_languages():
 	}
 
 @frappe.whitelist()
+def get_user_limit(arg=None):
+	"""return system allowed users as well as enabled users"""
+	system_user_count = len(get_system_users(['Administrator','Guest']))
+	user_limit = frappe.conf.get("user_limit") or 0
+	if(user_limit == 0):
+		message_note = _('You are using un-limited user version.')
+	elif(user_limit >= system_user_count):
+		message_note = (_("You are using %s user version, now left %s, if need upgrade, please visit erp boost website") % (user_limit, user_limit - system_user_count))
+	elif(user_limit < system_user_count ):
+		message_note = (_("You are using %s user version, now has %s overflow, if need upgrade, please visit erp boost website") % (user_limit, system_user_count - user_limit))
+
+	return {'system_user_count':system_user_count,'user_limit':user_limit,"message_note":message_note}
+	
+
+@frappe.whitelist()
 def get_all_roles(arg=None):
 	"""return all roles"""
 	return [r[0] for r in frappe.db.sql("""select name from tabRole
