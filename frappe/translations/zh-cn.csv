@@ -760,7 +760,7 @@ Page Header,页眉
 Page Header Background,网页标题背景
 Page Header Text,页眉文本
 Page Links,网页链接
-Page Name,网页名称
+Page Name,页面标识
 Page Role,页面角色
 Page Text,页面文字
 Page Title,页面标题
@@ -1796,3 +1796,45 @@ Reset to defaults,重设至默认
 Upcoming Calendar Events (max 10),到期日历事件(最多10个)
 Calendar Events,日历事件
 Enter the name of the new ,为此文档输入名称:
+My Addresses,我的地址
+No Addresses Found,未添加地址
+No Orders Yet,无订单
+My Tickets,我的咨询
+No Tickets Raised,无任何咨询
+New Ticket,新建咨询
+Home,首页
+Reply,添加回复
+Invoices,发票
+No Invoices Found,未找到记录
+"Oops, a server error has occured",服务器发生了错误
+No Shipments Found,未找到记录
+Go ahead and add something to your cart.,选择商品添加进购物车吧
+Back to Home,返回首页
+You have been logged out.,成功登出
+Logged Out,登出系统
+No items listed,未找到产品
+Showing top 100 items,显示前100个产品
+Product Search,搜索
+Cart,购物车
+Addresses,地址
+My Orders,我的订单
+My Tickets,我的咨询
+Invoices,发票
+Shipments,发货情况
+My Profile,个人资料
+Home,首页
+My Addresses ,我的地址
+New Address,新地址
+Insert,插入
+Place Order,下单
+Available (in stock),库存有货
+Not in stock,无库存
+New Shipping Address,新建送货地址
+New Billing Address,新建账单地址
+Enquiry,咨询
+My First Blog,欢迎使用博实ERP
+Hey! Go ahead and add an address,还未创建送货地址. 赶快创建吧
+phone,电话
+Search results for: ,搜索产品
+Search Results,搜索结果
+Product Search,产品搜索
