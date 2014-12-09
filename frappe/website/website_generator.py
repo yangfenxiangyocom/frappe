@@ -3,28 +3,36 @@
 
 from __future__ import unicode_literals
 import frappe
+from frappe.utils import now
 from frappe.model.document import Document
 from frappe.model.naming import append_number_if_name_exists
 from frappe.website.utils import cleanup_page_name, get_home_page
 from frappe.website.render import clear_cache
-from frappe.utils import now
 from frappe.modules import get_module_name
 from frappe.website.router import get_page_route
 
 class WebsiteGenerator(Document):
 	page_title_field = "name"
 	def autoname(self):
-		self.name = self.get_page_name()
-		append_number_if_name_exists(self)
+		if self.meta.autoname != "hash":
+			self.name = self.get_page_name()
+			append_number_if_name_exists(self)
 
 	def onload(self):
 		self.get("__onload").website_route = self.get_route()
 
 	def validate(self):
 		self.set_parent_website_route()
-		if self.website_published() and self.meta.get_field("page_name") and not self.page_name:
-			self.page_name = self.get_page_name()
-		self.update_routes_of_descendants()
+
+		if self.meta.get_field("page_name") and not self.get("__islocal"):
+			current_route = self.get_route()
+			current_page_name = self.page_name
+
+			self.page_name = self.make_page_name()
+
+			# page name changed, rename everything
+			if current_page_name and current_page_name != self.page_name:
+				self.update_routes_of_descendants(current_route)
 
 	def on_update(self):
 		clear_cache(self.get_route())
@@ -32,11 +40,11 @@ class WebsiteGenerator(Document):
 			frappe.add_version(self)
 
 	def get_route(self, doc = None):
-		if not self.website_published():
-			return None
-
 		self.get_page_name()
 		return make_route(self)
+
+	def clear_cache(self):
+		clear_cache(self.get_route())
 
 	def get_page_name(self):
 		return self.get_or_make_page_name()
@@ -44,19 +52,22 @@ class WebsiteGenerator(Document):
 	def get_or_make_page_name(self):
 		page_name = self.get("page_name")
 		if not page_name:
-			page_name = cleanup_page_name(self.get(self.page_title_field))
+			page_name = self.make_page_name()
 			self.set("page_name", page_name)
 
 		return page_name
 
+	def make_page_name(self):
+		return cleanup_page_name(self.get(self.page_title_field))
+
 	def before_rename(self, oldname, name, merge):
 		self._local = self.get_route()
-		clear_cache(self.get_route())
+		self.clear_cache()
 
 	def after_rename(self, olddn, newdn, merge):
 		if getattr(self, "_local"):
 			self.update_routes_of_descendants(self._local)
-		clear_cache(self.get_route())
+		self.clear_cache()
 
 	def on_trash(self):
 		clear_cache(self.get_route())
@@ -81,10 +92,20 @@ class WebsiteGenerator(Document):
 				old_route = frappe.get_doc(self.doctype, self.name).get_route()
 
 			if old_route and old_route != self.get_route():
-				frappe.db.sql("""update `tab{0}` set
-					parent_website_route = replace(parent_website_route, %s, %s)
-					where parent_website_route like %s""".format(self.doctype),
-					(old_route, self.get_route(), old_route + "%"))
+				# clear cache of old routes
+				old_routes = frappe.get_all(self.doctype, fields=["parent_website_route", "page_name"],
+					filters={"parent_website_route": ("like", old_route + "%")})
+
+				if old_routes:
+					for old_route in old_routes:
+						clear_cache(old_route)
+
+					frappe.db.sql("""update `tab{0}` set
+						parent_website_route = replace(parent_website_route, %s, %s),
+						modified = %s
+						modified_by = %s
+						where parent_website_route like %s""".format(self.doctype),
+						(old_route, self.get_route(), now(), frappe.session.user, old_route + "%"))
 
 	def get_website_route(self):
 		route = frappe._dict()
@@ -98,7 +119,7 @@ class WebsiteGenerator(Document):
 			"controller": get_module_name(self.doctype, self.meta.module),
 			"template": self.template,
 			"parent_website_route": self.get("parent_website_route", ""),
-			"page_title": self.get(self.page_title_field)
+			"page_title": getattr(self, "page_title", None) or self.get(self.page_title_field)
 		})
 
 		self.update_permissions(route)
@@ -112,7 +133,7 @@ class WebsiteGenerator(Document):
 		else:
 			route.public_read = 1
 
-	def get_parents(self):
+	def get_parents(self, context):
 		parents = []
 		parent = self
 		while parent:
