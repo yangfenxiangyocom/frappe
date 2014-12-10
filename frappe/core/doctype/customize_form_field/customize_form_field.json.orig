@@ -278,7 +278,11 @@
  "idx": 1, 
  "issingle": 0, 
  "istable": 1, 
+<<<<<<< HEAD
+ "modified": "2014-09-30 10:41:29.641454", 
+=======
  "modified": "2014-11-07 11:08:52.125289", 
+>>>>>>> c35a01b31c41fca3f91a7c4e3b9e9c04f762e37d
  "modified_by": "Administrator", 
  "module": "Core", 
  "name": "Customize Form Field", 
